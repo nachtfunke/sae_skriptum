@@ -1,0 +1,27 @@
+{
+  "name": "sae_skriptum",
+  "description": "Skriptum für den Webdevelopment Unterricht am SAE Wien",
+  "main": "index.html",
+  "authors": [
+    "Thomas Semmler"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "frontend",
+    "webdevelopment"
+  ],
+  "moduleType": [],
+  "homepage": "http://sae.thomassemmler.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "susy": "^2.2.12",
+    "bourbon": "^4.2.6"
+  }
+}

@@ -1,0 +1,62 @@
+.unit {
+    @extend .module;
+    @include breakpoint(tablet) {
+        border: none;
+        padding: 0;
+    }
+    &__title {
+        font-size: 1em;
+        @include breakpoint(tablet) {
+            padding: 1rem;
+            color: #fff;
+            font-weight: 400;
+        }
+        & + p {
+            @include breakpoint(tablet) {
+                padding: 0 1em 1em 1em;
+            }
+        }
+    }
+    &.theme {
+        &--carrot {
+            @for $i from 0 through 4 {
+                &:nth-child(#{$i}) {
+                    @if $i == 0 {
+                        color: color(theme-carrot);
+                    } @else {
+                        color: adjust-hue(color(theme-carrot), ($i * 5%));
+                    }
+                    .unit__title {
+                        @include breakpoint(tablet) {
+                            @if $i == 0 {
+                                background-color: color(theme-carrot);
+                            } @else {
+                                background-color: adjust-hue(color(theme-carrot), ($i * 5%));
+                            }
+                        }
+                    }
+                }
+        	}
+        }
+        &--grape {
+            @for $i from 0 through 7 {
+                &:nth-child(#{$i}) {
+                    @if $i == 0 {
+                        color: color(theme-grape);
+                    } @else {
+                        color: adjust-hue(color(theme-grape), ($i * 12%));
+                    }
+                    .unit__title {
+                        @include breakpoint(tablet) {
+                            @if $i == 0 {
+                                background-color: color(theme-grape);
+                            } @else {
+                                background-color: adjust-hue(color(theme-grape), ($i * 12%));
+                            }
+                        }
+                    }
+                }
+        	}
+        }
+    }
+}

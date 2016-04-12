@@ -1,0 +1,18 @@
+<header class="header">
+    <div class="wrapper--base">
+        <figure class="header__logo">
+            <a href="{{ site.baseurl }}/">&lbrace;{{ site.title }};&rbrace;</a>
+        </figure>
+        <nav class="header__navigation">
+            <ul class="menu--main">
+            {% for my_page in site.pages %}
+                {% if my_page.title %}
+                    {% if my_page.level == "top" %}
+                        <li class="menu__item"><a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</header>

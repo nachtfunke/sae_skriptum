@@ -1,0 +1,233 @@
+.page {
+    background-color: #fff;
+    padding: 1rem;
+    position: relative;
+    @include custom_breakpoint(414px) {
+        margin: 0 1rem;
+    }
+    @include breakpoint(tablet) {
+        padding: 2rem;
+    }
+    @include breakpoint(regular) {
+        padding: 5rem;
+    }
+    & > * + * {
+        margin-top: 0.75em;
+    }
+    &.page-theme {
+        &--carrot {
+        	@for $i from 0 through 4 {
+                &_#{$i} {
+                    h1, h2, h3, h3:before, p > strong, li > strong {
+                        @if $i == 0 {
+                            color: color(theme-carrot);
+                        } @else {
+                            color: adjust-hue(color(theme-carrot), ($i * 5%));
+                        }
+                    }
+                    h3 {
+                        @include breakpoint(regular) {
+                            color: darken(color(bg),60%);
+                        }
+                    }
+                }
+        	}
+        }
+        &--grape {
+        	@for $i from 0 through 4 {
+                &_#{$i} {
+                    h1, h2, h3, h3:before, p > strong, li > strong {
+                        @if $i == 0 {
+                            color: color(theme-grape);
+                        } @else {
+                            color: adjust-hue(color(theme-grape), ($i * 12%));
+                        }
+                    }
+                    h3 {
+                        @include breakpoint(regular) {
+                            color: darken(color(bg),60%);
+                        }
+                    }
+                }
+        	}
+        }
+    }
+    &__title {
+        font-size: 1em;
+        text-transform: uppercase;
+        line-height: 1;
+        /*border-bottom: 1px solid currentcolor;
+        padding-bottom: 1em;*/
+        font-weight: 400;
+        color: darken(color(bg), 25%);
+        & + * {
+            margin-top: 2em;
+        }
+    }
+    & > h1:not(.page__title) {
+        font-size: 2em;
+        border-bottom: 2px solid currentcolor;
+        padding-bottom: 0.5em;
+        font-weight: 400;
+        @include breakpoint(regular) {
+            font-size: 3em;
+            font-weight: 600;
+            border-bottom: 0;
+            padding-bottom: 0;
+            margin-bottom: 1em;
+        }
+        & + * {
+            margin-top: 1.5em;
+        }
+    }
+    h2 {
+        font-size: 1.25em;
+        font-weight: 400;
+        position: relative;
+        margin-top: 2em;
+        &:before {
+            content: '';
+            position: absolute;
+            top: -0.5em;
+            left: -0.777em;
+            height: calc(100% + 1em);
+            width: calc(100% + 1.56em);
+            background-color: currentcolor;
+            opacity: 0.1;
+            @include breakpoint(regular) {
+                display: none;
+            }
+        }
+        @include breakpoint(regular) {
+            font-size: 2em;
+            font-weight: 600;
+            border-top: 3px solid darken(color(bg),5%);
+            padding-top: 1em;
+        }
+        & + * {
+            margin-top: 2em;
+        }
+    }
+    h3 {
+        @extend %font-text;
+        position: relative;
+        font-size: 1em;
+        line-height: 2;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: darken(color(bg),35%);
+        &:before {
+            content: '';
+            height: 100%;
+            width: 3px;
+            position: absolute;
+            top: 0;
+            left: -1rem;
+            background-color: currentcolor;
+            @include breakpoint(regular) {
+                display: none;
+            }
+        }
+        @include breakpoint(regular) {
+            font-size: 1.25em;
+        }
+    }
+    h4 {
+        @extend %font-text;
+        font-weight: 400;
+        font-size: 0.875em;
+        margin-top: 2em;
+        text-transform: uppercase;
+        @include breakpoint(regular) {
+            font-weight: 400;
+            color: darken(color(bg),50%);
+        }
+    }
+    h5 {
+        margin-top: 2em;
+        font-size: 0.75em;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: #aaa;
+    }
+    p, li {
+        font-size: 0.85em;
+        color: darken(color(bg), 50%);
+        @include breakpoint(tablet) {
+            font-size: 1em;
+        }
+        @include breakpoint(regular) {
+            font-size: 1.1em;
+            line-height: 1.75;
+        }
+        & > a {
+            display: inline-block;
+            background-color: color(bright);
+            color: color(primary);
+            padding: 0 0.5ch;
+        }
+        & > code {
+            background-color: darken(color(bg), 10%);
+        }
+    }
+    p {
+        //column-count: 2;
+    }
+    ul {
+        padding-left: 1em;
+    }
+    li {
+        list-style-type: square;
+        padding-left: 0.25em;
+        & + li {
+        }
+    }
+    blockquote {
+        background-color: #fafafa;
+        padding: 1ch;
+        font-style: italic;
+        position: relative;
+        @include breakpoint(regular) {
+            padding: 1em;
+            /*width: span(5 of 12);
+            background-color: color(bright);
+            float: left;
+            transform: translateX(-2em);*/
+        }
+        p {
+            //font-size: 0.875em;
+        }
+        &:after, &:before {
+            content: '\0022';
+            color: color(bright);
+            position: absolute;
+            font-size: 2em;
+        }
+        &:before {
+            top: 0em;
+            left: 0em;
+        }
+        &:after {
+            bottom: 0;
+            right: 0;
+            transform: translateX(-60%) translateY(45%);
+        }
+    }
+    .highlight {
+        @extend %font-code;
+        font-size: 0.75em;
+        /*background-color: #eee;
+        color: #aaa;
+        font-size: 0.875em;
+        display: block;
+        padding: 1ch;
+        letter-spacing: normal;*/
+        line-height: 1;
+        overflow-x: scroll;
+        padding: 1em;
+        border-radius: 3px;
+    }
+    .menu--modules {
+        margin: 3em 0;
+    }
+}

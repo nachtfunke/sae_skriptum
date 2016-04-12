@@ -1,0 +1,70 @@
+.menu {
+    &:hover {
+        opacity: 1;
+    }
+    &__item {
+        display: inline-block;
+        & + & {
+            margin-left: 1ch;
+        }
+    }
+    &--main {
+        @extend .menu;
+        .menu {
+            &__item {
+                font-weight: 400;
+                color: lighten(color(dark),15%);
+                border-bottom: 2px solid transparent;
+                &.active, &:hover {
+                    color: color(primary);
+                    border-bottom-color: color(bright);
+                }
+                &.active {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    &--modules {
+        @extend .menu;
+        @include breakpoint(tablet) {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+        .menu {
+            &__item {
+                display: block;
+                @include breakpoint(tablet) {
+                    flex-basis: span(6 of 12);
+                    margin-bottom: 1em;
+                }
+                & > a {
+                    display: block;
+                }
+                & + .menu__item {
+                    margin-left: 0;
+                    margin-top: 1em;
+                    @include breakpoint(tablet) {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+    &--units {
+        @extend .menu--modules;
+        .menu {
+            &__item {
+                transition: transform .45s cubic-bezier(0.76, 0.01, 0.3, 1.02), box-shadow .45s cubic-bezier(0.76, 0.01, 0.3, 1.02);
+                &:hover {
+                    @include breakpoint(regular) {
+                        transform: translateY(-0.5em);
+                        box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+                    }
+                }
+            }
+        }
+    }
+}

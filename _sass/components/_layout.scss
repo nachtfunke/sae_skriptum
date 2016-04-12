@@ -1,0 +1,25 @@
+.wrapper {
+    &--base {
+        @include container(62.5em);
+    }
+}
+
+.header {
+    margin: 1em 0;
+    & > .wrapper--base {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__logo {
+        //flex-basis: span(7 of 12);
+    }
+    &__navigation {
+        display: none;
+        flex-basis: span(last 5 of 12);
+    }
+}
+
+.main {
+    margin-top: 2em;
+}

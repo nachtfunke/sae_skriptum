@@ -1,0 +1,58 @@
+/* =============================================================================
+	style.scss
+
+	This is the Main Boostrap file. It includes and requires all other needed
+	scss files, as well as bourbon, or compass, or whatever else you use.
+
+	I do not use cross-browser compatibility mixins anymore, as autoprexer made
+	this subject pretty much a nobrainer. I highly recommend everyone to do the
+	same, but still, everyone has differnt tools and works differently. So feel
+	free to do whatever you want.
+
+	========================================================================== */
+
+
+	/* ====== vendor ====== */
+
+	// bourbon http://bourbon.io/docs/
+	@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+
+	// susy 2 http://susy.oddbird.net/ (Susy 2 does not require compass anymore)
+	@import "../bower_components/susy/sass/susy";
+
+
+	/* ====== reset / normalize ====== */
+
+	// a scss version of Eric Meyer's reset.css (scss: https://github.com/ianrose/reset-scss, original css: http://meyerweb.com/eric/tools/css/reset/)
+	@import '../bower_components/reset-scss/reset.scss';
+
+
+/* =============================================================================
+	Bootstrapping all Partials
+
+	This way of organizing is called ITCSS, which originates from Harry Roberts.
+	The later the included partial, the more specific the selector gets. Its Aim
+	is it, to keep the specifity graph throughout the project as steady growing,
+	as possible.
+
+	More can be seen here: http://itcss.io/
+	Or on Harry Roberts blog: csswizardry.com
+
+	========================================================================== */
+
+	@import 'settings';
+	@import 'tools';
+	@import 'generic';
+	@import 'base';
+
+	@import 'objects/menu';
+	@import 'objects/module';
+	@import 'objects/unit';
+	@import 'components/typo';
+	@import 'components/layout';
+	@import 'components/page';
+	@import 'components/header';
+
+	@import 'trumps';
+
+	@import 'objects/syntax'

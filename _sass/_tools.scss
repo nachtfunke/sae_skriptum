@@ -1,0 +1,60 @@
+/* =============================================================================
+	Tools
+
+	This is the place for functions and mixins.
+
+	========================================================================== */
+
+	// This function generates a color() function, based on the colors in $colors
+	@function color($name) {
+		@return map-get($colors, $name);
+	}
+
+	// Breakpoint mixin; It makes use of the breakpoints defined in $breakpoints
+	@mixin breakpoint($point) {
+		@each $name, $pixels in $breakpoints {
+			@if $name == $point {
+				@media (min-width: $pixels) { @content; }
+			}
+		}
+	}
+
+	// Custom breakpoint mixin
+	@mixin custom_breakpoint($point) {
+		@media (min-width: $point) { @content; }
+	}
+
+	// Good old clearfix
+	@mixin clearfix() {
+	    & {
+	        *zoom: 1;
+	    }
+	    &:before,
+	    &:after {
+	        content: "";
+	        display: table;
+	    }
+	    &:after {
+	        clear: both;
+	    }
+	}
+
+	/* -----
+	SVG Icons - svgicons.sparkk.fr
+	----- */
+
+	.svg-icon {
+	  width: 1em;
+	  height: 1em;
+	}
+
+	.svg-icon path,
+	.svg-icon polygon,
+	.svg-icon rect {
+	  fill: currentcolor;
+	}
+
+	.svg-icon circle {
+	  stroke: currentcolor;
+	  stroke-width: 1;
+	}

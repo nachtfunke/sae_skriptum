@@ -1,0 +1,72 @@
+/* ====== Produces text-, background- and border-color classes based on the colors in _settings.scss ====== */
+@each $color-name, $color-value in $colors {
+	.bgcolor--#{$color-name} {
+		background-color: #{$color-value};
+	}
+	.txtcolor--#{$color-name} {
+		color: #{$color-value};
+	}
+	.bordercolor--#{$color-name} {
+		border-color: #{$color-value};
+	}
+}
+
+	// blockelements Helper Classes
+	.overauto {
+		overflow: auto;
+	}
+	.maauto {
+		margin: 0 auto;
+	}
+	.dinblock {
+		display: inline-block;
+	}
+	
+	// Positions {
+	.posrel {
+		position: relative;
+	}
+	
+	// floating, clearing...
+	.clear {
+		clear: both !important;
+	}
+	.clearfix {
+		@include clearfix();
+	}
+	.fright {
+		float: right;
+	}
+	.fleft {
+		float: left;
+	}
+	
+	// font-styles
+	.italize {
+		font-style: italic;
+	}
+	
+	// aligning
+	.tacenter {
+		text-align: center;
+	}
+	.taleft {
+		text-align: left;
+	}
+	.taright {
+		text-align: right;
+	}
+	
+	// show, hide, transparentize...
+	.disabled {
+		display: none !important;
+	}
+	.enabled {
+		display: block !important;
+	}
+	.invisible {
+		opacity: 0 !important;
+	}
+	.visible {
+		opacity: 1 !important;
+	}

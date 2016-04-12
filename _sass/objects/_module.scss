@@ -1,0 +1,23 @@
+.module {
+    border-left: 2px solid currentcolor;
+    padding: 1em;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
+    &__title {
+        color: currentcolor;
+        font-size: 1.25em;
+        font-weight: 600;
+        line-height: 1;
+    }
+    p {
+        font-size: 0.85em;
+        letter-spacing: -0.075ch;
+    }
+    &-theme {
+        &--carrot {
+            color: color(theme-carrot)
+        }
+        &--grape {
+            color: color(theme-grape);
+        }
+    }
+}

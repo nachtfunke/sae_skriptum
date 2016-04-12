@@ -1,0 +1,19 @@
+/* =============================================================================
+	Generic
+
+	* Selectors and Reset-Overwrites
+
+	========================================================================== */
+
+	a {
+		color: inherit;
+		text-decoration: none;
+		transition: color .25s ease;
+	}
+
+	* {
+		box-sizing: border-box;
+		&:focus {
+			outline: none;
+		}
+	}

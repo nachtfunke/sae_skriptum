@@ -1,0 +1,26 @@
+.header {
+    //background-color: #fff;
+    padding: 1em;
+    &__logo {
+        font-size: 1.25em;
+        font-weight: 600;
+        color: color(primary);
+        a {
+            background-color: color(bright);
+            display: inline-block;
+            padding: 0.5ch;
+            transform: rotate(-3deg);
+        }
+        .text, .icon {
+            vertical-align: middle;
+            display: inline-block;
+            height: 1em;
+        }
+        .icon {
+            padding-left: 1ch;
+        }
+    }
+    &__navigation {
+        text-align: right;
+    }
+}
