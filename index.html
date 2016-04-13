@@ -1,25 +1,27 @@
 ---
 layout: page
-title: Module
+title: Home
 level: top
 ---
 
-<h1 class="page__title">Module</h1>
-<p>Hier werden alle Module, aufbauend aufeinander (in der Reihenfolge in der Sie unterrichtet werden) angezeigt.</p>
+<h1 class="page__title">Skriptum Frontend</h1>
 
-<nav class="menu--modules">
-    {% assign sorted_pages = (site.pages | sort: 'order') %}
-    {% for page in sorted_pages %}
-        {% if page:categories == "modul" %}
-            <article class="menu__item  module  module-theme--{{ page.theme }}">
-                <a href="{{ page.url | prepend: site.url }}" title="{{ page.title }}">
-                    <h1 class="module__title">{{ page.title }}</h1>
-                    <p>{{ page.excerpt }}</p>
+<p>Auf dieser Website befindet sich einerseits das <strong>begleitende Skriptum</strong>, unter <a href="module/">Module</a>, für den Unterricht im Bereich <strong>Frontend, SAE Wien</strong>, andererseits findet man hier ergänzende Ressourcen zum Thema Frontend Development.</p>
+
+<p>Die Inhalte sind, inklusive Skriptum, <strong>lebendige</strong> Dokumente und werden geupdated. Kein Update bleibt dabei ungelistet - diese sind unter <a href="updates.html">Updates</a> zu finden.</p>
+
+<p>Alternativ kann man auf die Inhalte des Projekts auch via <a href="https://github.com/nachtfunke/sae_skriptum" target="_blank">Github</a> zugreifen. Dort findet auch alle Zusammenarbeit statt - jede Mitarbeit ist willkommen!</p>
+
+<h2 class="page__section-title">Neueste Updates</h2>
+
+<ul class="page__post-list">
+    {% for post in site.posts %}
+        <li>
+            <article class="post--listed">
+                <a href="{{ post.url }}">
+                    <time class="post__date">{{ post.date | date_to_string }}</time>
+                    <h1 class="post__title">{{ post.title }}</h1>
                 </a>
             </article>
-        {% endif %}
     {% endfor %}
-    </ul>
-</nav>
-
-<p>Alternativ, sind die Einheiten auch auf <a href="#">GitHub</a> einsehbar.</p>
+</ul>

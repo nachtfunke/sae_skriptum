@@ -4,6 +4,7 @@ title: Einheit 3 - Arbeitsschritte optimieren
 permalink: /module/frontend_advanced/3/
 categories: frontend_advanced
 excerpt: "Alles zusammenführen: Automatisierung von Tasks & Optimierungen von Frontend Code."
+navigation_group: module
 theme: carrot_4
 ---
 
@@ -35,24 +36,24 @@ Es ist natürlich umständlich und nicht sehr nachhaltig, den Code jedesmal von 
 
 Da die einzelnen Elemente aus denen ein SVG besteht Teil des DOMs sind, können diese auch mit CSS selektiert werden. Da ist vor Allem der Wert `currentcolor` sehr nützlich. Currentcolor entspricht immer dem aktuell gesetzten `color`, also Schriftfarben-Wert. Das ist dann sehr interessant, wenn wir zBsp. Text neben einem Icon auf dieselbe Schriftfarbe setzen wollen:
 
-{% highlight sass %}
+``` sass
 .button {
     color: tomato;
     & > svg {
         fill: currentcolor;
     }
 }
-{% endhighlight %}
+```
 
 Der tatsächliche Selektor hängt letztendlich aber vom SVG ab und ob / wie diese optimiert sind. Nicht jedes SVG ist gleich aufgebaut und oft muss der Selektor spezifischer sein:
 
-{% highlight sass %}
+``` sass
 svg {
     rect, circle, ellipse, line, polyline, polygon, path {
         fill: currentcolor;
     }
 }
-{% endhighlight %}
+```
 
 Auf jeden Fall zu vermeiden: `svg * { ... }`. Der Universalselektor wählt dementsprechend jedes Element innerhalb von svg an und kann vor Allem bei komplexen SVG's Performanceprobleme bei Animationen verursachen.
 
@@ -60,10 +61,10 @@ Auf jeden Fall zu vermeiden: `svg * { ... }`. Der Universalselektor wählt demen
 
 Icon fonts sind eine bequeme und angenehme Alternative zu inline SVG's. Sie funktionieren in der Regel alle sehr gleich, in dem Sie ein Stylesheet und Fonts zur Verfügung stellen. Im HTML fügt man dann ein Element mit der korrespondierenden Klasse hinzu.
 
-{% highlight html %}
+``` html
 // Beispiel an Hand von Font Awesome
 <span class="fa fa-angle-right"></span>
-{% endhighlight %}
+```
 
 Das macht das Arbeiten mit Icons sehr einfach. Vorsicht jedoch vor der Gewohnheit: Wer immer nur zwei Icons benötigt muss dafür nicht eine ganze Icon Font einbinden. Performance-Bewusstsein in der Webentwicklung bedeutet vor Allem auch, dem User nicht anzumuten, noch mehr runterzuladen.
 
@@ -109,23 +110,23 @@ _Diese Schritte gehen davon aus, dass Node & NPM auf dem System laufen._
 
 Zuerst wir das CLI (Commandline Interface) global installiert:
 
-{% highlight shell %}
+``` bash
 npm install gulp-cli --global
-{% endhighlight %}
+```
 
 Ist die Installation beendet, wird im Projektordner sicherstellen, dass Gulp als devDependency für NPM gespeichert wird. Damit stellen wir sicher, dass wenn wir oder jemand anders das Projekt an einem anderen Ort aufmachen, ohne große Probleme alle devDependencies installiert werden können. Dabei hilft NPM's package.json, die wir mit diesem Befehl anlegen:
 
-{% highlight shell %}
+``` bash
 npm init
-{% endhighlight %}
+```
 
 Es startet darauf hin einen Q&A Prozess, dessen Antworten sich in der package.json wiederspiegeln. Wer das überspringen möchte, kann das flag `--yes` mit anhängen, was dazu führt, dass nur nach einem Namen gefragt wird.
 
 Ist dieser Prozess beendet, können wir NPM-Module als devDependencies speichern, die erste davon ist gulp:
 
-{% highlight shell %}
+``` bash
 npm install gulp --save-dev
-{% endhighlight %}
+```
 
 Sobald Gulp installiert ist, legen wir noch `gulpfile.js` im Root Verzeichnis an - dann hat Gulp auch schon alles, was es benötigt um funktionieren zu können.
 
@@ -139,13 +140,13 @@ Der Grund für diese Trennung ist, dass wir beispielsweise im dev-directory mit 
 
 Beginnen wir mit dem Grundgerüst des gulpfile.js
 
-{% highlight javascript %}
+``` javascript
 var gulp = require('gulp');
 
 gulp.task('task-name', function() {
     // Task-Code
 });
-{% endhighlight %}
+```
 
 `task-name` ist hier die Bezeichnung des Tasks. Möchte man diesen speziellen Task aufrufen, so genügt in der Konsole: `gulp task-name`. Gulp kennt auch den task `default` - schreibt man dann in der Konsole nur `gulp`, so wird dieser Task ausgeführt.
 
@@ -157,18 +158,18 @@ Wir wollen in unserem Default Projekt SASS schreiben. Wir brauchen also einen Ta
 
 um gulp-sass als devDependency zu speichern. Um das Plugin nutzen zu können, müssen wir es in userem gulpfile.js inkludieren.
 
-{% highlight javascript %}
+``` javascript
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
 gulp.task('task-name', function() {
     // Task-Code
 });
-{% endhighlight %}
+```
 
 Nun steht uns das Plugin zur Verfügung und wir können einen Task schreiben. Zuerst brauchen wir einen Task, der all unsere SCSS-Files findet und diese in CSS Files kompiliert:
 
-{% highlight javascript %}
+``` javascript
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
@@ -177,7 +178,7 @@ gulp.task('sass', function() {
         .pipe(sass()) // ...übergibt sie gulp-sass
         .pipe.(gulp.dest('dev/css')); // ...und speichert den output
 });
-{% endhighlight %}
+```
 
 Hier passieren drei Dinge:
 
@@ -189,7 +190,7 @@ Damit hat man auch schon die Basics verstanden. Die meisten Gulp Plugins die wir
 
 Rufen wir mit `gulp sass` den Task auf, so durchsucht Gulp unsere files und schreibt CSS in den angegebenen Ordner. Wir gehen für dieses Beispiel noch einen Schritt weiter und fügen außerdem einen Watch-Task hinzu, bei dem wir nicht immer neu die Commandline aufrufen müssen:
 
-{% highlight javascript %}
+``` javascript
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
@@ -202,11 +203,11 @@ gulp.task('sass', function() {
 gulp.task('sass:watch', function() {
     gulp.watch('dev/scss/**/*.scss', [sass]); // beobachte den Pfad und führe bei Änderungen den task [sass] aus
 });
-{% endhighlight %}
+```
 
 Rufen wir diesen Task auf, so können wir die Commandline getrost in Ruhe lassen und bequem in den SCSS Files arbeiten, während jedes Speichern unsere Files neu kompiliert. In einem letzten Schritt für dieses Beispiel, verbinden wir beide Tasks noch so, dass sie aufeinanderfolgen. Wir wollen, dass zuerst unser SCSS kompiliert wird und anschließend soll jede neue Änderung ebenfalls kompiled werden:
 
-{% highlight javascript %}
+``` javascript
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 
@@ -221,7 +222,7 @@ gulp.task('sass:watch', function() {
 });
 
 gulp.task('default', [sass, sass:watch]);  // Führe zuerst [sass], dann [sass:watch] aus.
-{% endhighlight %}
+```
 
 Geben wir jetzt in der Konsole `gulp` ein, so wird unser bestehendes SCSS kompiliert und anschließend bleibt alls auf Abruf und wartet auf Änderungen, die dann wieder neu kompiliert werden, sobald wir speichern.
 

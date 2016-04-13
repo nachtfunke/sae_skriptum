@@ -1,0 +1,45 @@
+.footer {
+    & > .wrapper--base {
+        padding: 1em;
+        @include breakpoint(tablet) {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 2em;
+        }
+        @include breakpoint(regular) {
+            padding: 5em 5em;
+        }
+    }
+    a {
+        color: color(primary);
+        text-decoration: underline;
+    }
+    &__contact {
+        text-align: center;
+        @include breakpoint(tablet) {
+            flex-basis: span(4 of 12);
+            text-align: left;
+        }
+        @include breakpoint(regular) {
+            font-size: 1em;
+        }
+        p {
+            @extend %font-code;
+            color: darken(color(bg),35%);
+            font-size: 0.8em;
+        }
+    }
+    &__disclaimer {
+        text-align: center;
+        @include breakpoint(tablet) {
+            text-align: left;
+            flex-basis: span(8 of 12);
+        }
+        p {
+            @extend %font-code;
+            color: darken(color(bg),35%);
+            font-size: 0.8em;
+        }
+    }
+}

@@ -4,6 +4,7 @@ title: Einheit 2 - Guten Code schreiben
 permalink: /module/frontend_advanced/2/
 categories: frontend_advanced
 excerpt: "praktische Denkansätze und Arbeitsweisen: Methodologien folgen und mit Pre- & Postprozessoren Code schreiben."
+navigation_group: module
 theme: carrot_3
 ---
 
@@ -31,8 +32,9 @@ Einer der frühesten Ansätze in diesem Bereich ist Object Oriented CSS (OOCSS) 
 
 regulärer Code:
 
-{% highlight css %}
-// Alle Styles werden in einen kontextuellen Selektor geschrieben
+``` css
+
+/* Alle Styles werden in einen kontextuellen Selektor geschrieben */
 div.content > aside {
     background-color: tomato;
     padding: 1em;
@@ -40,12 +42,13 @@ div.content > aside {
     width: 25%;
     margin-bottom: 2em;
 }
-{% endhighlight %}
+
+```
 
 Dieser Selektor führ zwar zu dem was wir wollen, aber er stellt einige Bedingungen: das Element muss immer `<aside>` sein, es muss immer ein direktes Kind eines divs mit der Klasse `.content` sein. Was aber, wenn sich das Markup ändert? Dann müssen wir auch unser CSS anpassen. Und das kann man vermeiden.
 
-{% highlight css %}
-// Styles werden in wiederverwendbare Klassen abstrahiert
+``` css
+/* Styles werden in wiederverwendbare Klassen abstrahiert*/
 .sidebar {
     background-color: tomato;
     padding: 1em;
@@ -57,7 +60,7 @@ Dieser Selektor führ zwar zu dem was wir wollen, aber er stellt einige Bedingun
 .last {
     float: right;
 }
-{% endhighlight %}
+```
 
 In unserem HTML Code schreiben wir dann: `<aside class="sidebar small_column last">`. Nehmen wir eine dieser Klassen dann raus, so wird der Style nicht mehr angewandt. So können wir einerseits Styles komplett wiederverwenden, andererseits können wir HTML Seiten wie nach einem Baukastensystem zusammenbauen. Das ist dann auch sehr vorteilhaft, wenn man selbst hauptsächlich an Markup & Style arbeitet, ein anderer Entwickler aber zBsp. in PHP arbeitet und auf dieses Markup zugreift um sich eine Seite zu bauen, ohne im CSS Code herumzukramen.
 
@@ -75,16 +78,16 @@ SMACSS (Scaleable and Modular Architecture for CSS) ist ein System das von Jonat
 
 Die Kategorierung im CSS Code selbst findet über die Naming Convention statt. Layout wird mit `.l-`, oder `.layout-` geprefixed und state mit `.is-`.
 
-{% highlight html %}
+``` html
 <article class="blog-post layout-3-cols is-listed">
     <h1 class="post-title headline">Lorem Ipsum</h1>
     <p class="post-excerpt desc"></p>
 </article>
-{% endhighlight %}
+```
 
 Und unser CSS beispielsweise:
 
-{% highlight css %}
+``` css
 .blog-post {
     padding: 1em 0;
     background-color: #fff;
@@ -109,7 +112,7 @@ Und unser CSS beispielsweise:
 .post-excerpt {
     margin-bottom: 1em;
 }
-{% endhighlight %}
+```
 
 Auch hier muss man für sich selbst entscheiden, was abstrahiert wird und was nicht. Hier sollte man auch erwähnen, dass ein wenig Kontext nicht schadet, solange man sich nicht im Kontextjungle verirrt. Abstrahiert man alles auf Selektoren mit der selben Spezifität, so wird bei überschneidenden Regeln immer die Regel angewandt, die zuletzt geschrieben wurde. Man könnte in diesem Beispiel getrost `.blog-post .title { ... }` schreiben.
 
@@ -121,7 +124,7 @@ BEM löst in erster Linie ein Problem, dass bei sehr modularer CSS Architektur e
 
 CSS
 
-{% highlight css %}
+``` css
 .blog-post {
     padding: 1em;
     background-color: #fff;
@@ -136,29 +139,29 @@ CSS
 .blog-post__excerpt {
     margin-bottom: 1em;
 }
-{% endhighlight %}
+```
 
 HTML
 
-{% highlight html %}
+``` html
 <article class="blog-post">
     <h1 class="blog-post__title">Lorem Ipsum</h1>
     <p class="blog-post__excerpt"></p>
 </article>
-{% endhighlight %}
+```
 
 BEM produziert genau so abstrahierte und modularisierte Klassen, wie OOCSS. Wir können auch `<p class="blog-post__excerpt title"></p>` schreiben, wenn wir das brauchen. Dabei ist es jedoch wichtig, dass wir die Lesbarkeit nicht vergessen, sonst entsteht `<p class="desc blogpost__excerpt sidebar__text"></p>`. So ein Fall zeigt uns grundsätzlich an, dass wir Styles so modular beschreiben müssen, dass wir sie wiederverwenden können ohne dass sie die Lesbarkeit beeinflussen. So kann aus `sidebar__text` auch `text--small` machen und an den jeweiligen Stellen anwenden. Dabei geht es aber in erster Linie um die Lesbarkeit, die man nicht ignorieren sollte. Löscht man zBsp. das Sidebar-Modul (heißt, es kommt nicht mehr im Markup vor und verschwindet auch aus dem CSS), so greift die Regel auf einmal nicht mehr. Hat man den Teil jedoch abstrahiert, ist das kein Problem.
 
 Blocks können auch Elements von Blocks sein:
 
-{% highlight html %}
+``` html
 <div class="wrapper--posts post-list">
     <article class="post-list__entry blog-post">
         <h1 class="blog-post__title">Lorem Ipsum</h1>
         <p class="blog-post__excerpt"></p>
     </article>
 </div>
-{% endhighlight %}
+```
 
 Hier bringt `.post-list` als neuer Block das Thema Kontext ins Spiel. Wir können auch hergehen, und im CSS `.post-list > .blog-post` schreiben, dabei limitieren wir uns aber, weil wir davon ausgehen, dass nur `.blog-post` in `.post-list` vorkommen können. Die Regel würde also nicht mehr greifen, wenn ein modifier ins Spiel kommt, oder andere Elemente ebenfalls dazukommen. Also macht man den blog-post-block zu einem post-list-element, in dem man die zusätzliche Klasse `post-list__element` dazugibt.
 
@@ -225,19 +228,19 @@ Ein Partial zeichnet sich dadurch aus, dass es vom Compiler ignoriert wird und k
 
 Variabeln speichern Daten. Dabei verhalten Sie sich genauso, wie man es erwarten würde:
 
-{% highlight sass %}
+``` sass
 $color-primary: #bada55;
 
 p > a {
     color: $color-primary;
 }
-{% endhighlight %}
+```
 
 SASS-Variabeln werden beim processing dann durch den gespeicherten Wert ersetzt. Variabeln eignen sich am Idealsten zum Setzen von Settings, wie Schriftarten, Farb-Schemas, etc.
 
 Mehrere Daten selber Art (wie zBsp mehrere Farben in einem Farbschema) können auch in sass-maps gespeichert werden. Um auf Werte innerhalb der Map zuzugreifen, wird eine Funktion, `map-get($map, key);` verwendet.
 
-{% highlight sass %}
+``` sass
 $colors: (
     // key: value,
     primary: #bada55,
@@ -248,7 +251,7 @@ $colors: (
 p > a {
     color: map-get($colors, primary);
 }
-{% endhighlight %}
+```
 
 Maps eignen sich auch gut, um eine Reihe an Breakpoints, Schriftarten etc. zu speichern. Keys & Values können jede Form von Sass-Type sein und müssen nicht ausschließlich Strings sein.
 
@@ -256,7 +259,7 @@ Maps eignen sich auch gut, um eine Reihe an Breakpoints, Schriftarten etc. zu sp
 
 Nesting gehört zu den mächtigsten Features. Dabei können wir einen neuen Selektor innerhalb eines bestehenden Schreiben:
 
-{% highlight sass %}
+``` sass
 p {
     font-size: 1em;
     strong {
@@ -272,13 +275,13 @@ p {
 p strong {
     font-weight: 600;
 }
-{% endhighlight %}
+```
 
 Sass hängt beim processing die Selektoren nach ihrem Nesting zusammen. Schreibt an also einen Selektor in einen Selektor, so wird der darüberliegende Selektor vorangehangen.
 
 Beim Nesting kommt außerdem das Ampersand, "&amp;" zum Tragen. Es referenziert immer den Eltern Selektor.
 
-{% highlight sass %}
+``` sass
 p {
     font-size: 1em;
     line-height: 1.5;
@@ -320,7 +323,7 @@ p__element {
 p__element--modifier {
     font-size: 0.75em;
 }
-{% endhighlight %}
+```
 
 Komplizierte Selektoren lassen sich somit komfortabel und leicht veränderbar schreiben und eignen sich fantastich zum Arbeiten mit beispielsweise der BEM Methodologie.
 
@@ -330,7 +333,7 @@ Dabei sollte man das Level an Nesting immer im Auge behalten. Man vergisst oft, 
 
 Mixins erlauben es, mehrzeilige Deklarationen zu speichern und auszugeben und akzeptiert sogar Argumente:
 
-{% highlight sass %}
+``` sass
 @mixin set-open-type-feature($feature) {
     -moz-font-feature-settings: $feature;
     -webkit-font-feature-settings: $feature;
@@ -340,7 +343,7 @@ Mixins erlauben es, mehrzeilige Deklarationen zu speichern und auszugeben und ak
 p {
     @include set-open-type-feature("smcp");
 }
-{% endhighlight %}
+```
 
 Natürlich akzeptiert ein Mixin auch mehrere Argumente, default values und kann auch auf Variabeln oder sass-maps zugreifen, die außerhalb des Mixins definiert wurden.
 
@@ -348,7 +351,7 @@ Natürlich akzeptiert ein Mixin auch mehrere Argumente, default values und kann 
 
 Wohingegen mixins mehrzeiligen Code ausgeben, geben functions nur einen Wert eines sass-types zurück, können allerdings auf mehr Sass-Logik zurückgreifen. Genauso wie Mixins, akzeptieren auch Functions mehrere Argumente, default values etc.
 
-{% highlight sass %}
+``` sass
 $colors: (
     primary: #bada55,
     secondary: HotPink,
@@ -362,13 +365,13 @@ $colors: (
 header {
     background-color: color(primary); // Im Gegensatz zu background-color: map-get($colors, primary);
 }
-{% endhighlight %}
+```
 
 ### Control Directives
 
 Control Directives bringen spannende Möglichkeiten, wie Schleifen ins Spiel: @if, if(), @for, @while & @each. Diese lassen sich gut in Mixins & Functions integrieren:
 
-{% highlight sass %}
+``` sass
 @each $color-name, $color-value in $colors {
     .bgcolor--#{$color-name} {
 		background-color: #{$color-value};
@@ -380,7 +383,7 @@ Control Directives bringen spannende Möglichkeiten, wie Schleifen ins Spiel: @i
 		border-color: #{$color-value};
 	}
 }
-{% endhighlight %}
+```
 
 ### Weiterführendes
 
@@ -405,7 +408,7 @@ ITCSS ist eine Methode, mehrere CSS Files zu organisieren und wurde von Harry Ro
 
 Und so sieht dann beispielsweise das Main Sass file aus:
 
-{% highlight sass %}
+``` sass
 @import 'settings';
 @import 'tools';
 @import 'generic';
@@ -415,7 +418,7 @@ Und so sieht dann beispielsweise das Main Sass file aus:
 @import 'components/header';
 
 @import 'trumps';
-{% endhighlight %}
+```
 
 Folgt man BEM, SMACSS oder OOCS so sollten sich in den meisten Partials bis Components nur Selektoren mit sehr niedriger Spezifität anhäufen, daher ist die Reihenfolge der @imports relevant, weil bei Regeln die sich gegenüberstehen und die gleiche Spezifität haben, die gewinnt, die näher am Ende des Stylesheets steht.
 

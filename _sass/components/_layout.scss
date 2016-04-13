@@ -1,25 +1,53 @@
 .wrapper {
     &--base {
         @include container(62.5em);
+        position: relative;
     }
 }
 
 .header {
     margin: 1em 0;
+    @include breakpoint(regular) {
+        margin: 0;
+        min-height: 40vh;
+    }
     & > .wrapper--base {
         display: flex;
         align-items: center;
-        justify-content: center;
+        //justify-content: center;
+        height: 100%;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        @include breakpoint(regular) {
+            padding-top: 5em;
+        }
     }
     &__logo {
         //flex-basis: span(7 of 12);
+        margin-bottom: 1em;
+        @include breakpoint(regular) {
+            margin-bottom: 1.25em;
+        }
     }
     &__navigation {
-        display: none;
-        flex-basis: span(last 5 of 12);
+        @include breakpoint(regular) {
+            margin-bottom: 10em;
+        }
+        //display: none;
+        //flex-basis: span(last 5 of 12);
     }
 }
 
 .main {
     margin-top: 2em;
+    @include breakpoint(regular) {
+        margin-top: 0;
+        transform: translateY(-4em);
+    }
+}
+
+.footer {
+    @include breakpoint(regular) {
+        transform: translateY(-4em);
+    }
 }

@@ -1,0 +1,20 @@
+---
+layout: post
+title:  "Update #1"
+date:   2016-04-13
+categories: update
+---
+
+Das Heutige Update bringt einige optische Veränderungen und funktionale Erweiterungen.
+
+## Neue Funktionen
+
++ Es gibt jetzt eine Navigationsleiste!
++ Alle Kontaktdaten sind jetzt im Footer zu finden
++ Die alte Startseite wurde durch eine tatsächliche Startseite ersetzt, auf der auch die neuesten Updates gelistet werden.
++ Es gibt nun Updates! Dabei handelt es sich um Zusammenfassungen von Neuerungen und Veränderungen auf der Seite
++ Ressourcen wird zukünftig mit zusätzlichen und weiterführenden Inhalten gefüllt (Podcasts, Bücher, Artikel, Seiten, Tools, etc.)
+
+## Veränderungen
+
++ Das Format für Syntax-Highlighting für Code-Blöcke wurde so verändert, dass es nun auch von Github lesbar ist.

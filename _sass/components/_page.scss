@@ -60,9 +60,21 @@
         padding-bottom: 1em;*/
         font-weight: 400;
         color: darken(color(bg), 25%);
+        margin-top: 2em;
+        @include breakpoint(smaller) {
+            margin-top: 1em;
+        }
+        @include breakpoint(regular) {
+            margin-top: 0;
+        }
         & + * {
             margin-top: 2em;
         }
+    }
+    &__section-title {
+        @extend .page__title;
+        font-size: 1em;
+        margin-top: 4em;
     }
     & > h1:not(.page__title) {
         font-size: 2em;
@@ -80,7 +92,7 @@
             margin-top: 1.5em;
         }
     }
-    h2 {
+    h2:not(.page__section-title) {
         font-size: 1.25em;
         font-weight: 400;
         position: relative;
@@ -173,7 +185,7 @@
     p {
         //column-count: 2;
     }
-    ul {
+    ul:not([class]) {
         padding-left: 1em;
     }
     li {
@@ -222,12 +234,19 @@
         display: block;
         padding: 1ch;
         letter-spacing: normal;*/
-        line-height: 1;
+        line-height: 1.5;
         overflow-x: scroll;
         padding: 1em;
         border-radius: 3px;
     }
     .menu--modules {
         margin: 3em 0;
+    }
+    &__post-list {
+        padding-left: 0;
+        li {
+            list-style-type: none;
+            padding-left: 0;
+        }
     }
 }

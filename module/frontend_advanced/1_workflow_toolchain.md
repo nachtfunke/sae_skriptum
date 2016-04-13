@@ -4,6 +4,7 @@ title: Einheit 1 - Workflow & Toolchain
 permalink: /module/frontend_advanced/1/
 categories: frontend_advanced
 excerpt: "Arbeiten mit Konfigurationen und Anpassungen: Einsatz von Boilerplates & Frontend Frameworks; Frontend Projekte beginnen."
+navigation_group: module
 theme: carrot_2
 ---
 
@@ -53,21 +54,21 @@ Möchte man als Entwickler auf Features zugreifen, deren Browser Support noch ni
 
 Modernizr schreibt in das <html> Element daraufhin Klassen, die die jeweiligen features representieren, wie zBsp.: `<html class="js no-cssgradients canvas">`. Als Entwickler kann man via JavaScript oder CSS dementsprechend handeln:
 
-{% highlight javascript %}
+``` javascript
 if (Modernizr.flexbox) {
     doSomething();
 } else {
     loadPolyfill();
 }
-{% endhighlight %}
+```
 
 Oder in CSS:
 
-{% highlight css %}
+``` css
 html.no-cssgradients .layout {
     background-color: #bada55; // Anstelle von linear-gradient
 }
-{% endhighlight %}
+```
 
 Feature Detection stellt eine logische und effektivere Erweiterung zum bis vor kurzem noch gängigen UA Browser Sniffing dar, bei dem abhängig vom Browser andere Stylsheets oder JavaScript ausgeführt wurde. Modernizr erlaubt es, moderne features früh auch in produkten Umgebungen (bspw. Kundenprojekte) einzusetzen.
 
@@ -168,15 +169,15 @@ Jekyll gehört zu den bekanntesten, der Static Site Generators. Das Ruby basiert
 
 Jekyll muss zuerst auf dem System installiert werden, damit das möglich ist, muss die Programmiersprache Ruby installiert sein. Ist Ruby auf dem System vorhanden reicht eine Zeile, um Jekyll zu installieren.
 
-{% highlight shell %}
+``` shell
 gem install jekyll
-{% endhighlight %}
+```
 
 Sobald der Installationsprozess abgeschlossen ist, ist Jekyll als Ruby Gem auf dem System verfügbar. Um ein neues Projekt in Jekyll zu starten, wechselt man mit `cd projekt_folder` in das Projekt und initiert ein neues Jekyll Projekt:
 
-{% highlight shell %}
+``` shell
 jekyll new .
-{% endhighlight %}
+```
 
 Ist das directory nicht leer, braucht man zusätzlich noch das argument `--force`. Damit wird in den Ordner ein Jekyll Projekt installiert. Von dort aus können Templates, layouts, posts und pages editiert und erstellt werden. Mit `jekyll build` generiert jekyll ein System aus Ordnern und HTML-Files in den Ordner `_site`. Dies ist auch der Ordner, der so auf den Webserver geladen werden kann - er enthält alles, um die Website anzuzeigen.
 

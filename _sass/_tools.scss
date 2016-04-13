@@ -39,6 +39,21 @@
 	    }
 	}
 
+	// Material Design Shadows
+	@mixin card-shadow($depth: 1) {
+		@if $depth == 1 {
+			box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.16), 0 1.5px 6px rgba(0, 0, 0, 0.08);
+		} @else if $depth == 2 {
+			box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16), 0 3px 12px rgba(0, 0, 0, 0.10);
+		} @else if $depth == 3 {
+			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16), 0 10px 40px rgba(0, 0, 0, 0.12);
+		} @else if $depth == 4 {
+			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16), 0 14px 56px rgba(0, 0, 0, 0.16);
+		} @else if $depth == 5 {
+			box-shadow: 0 15px 24px rgba(0, 0, 0, 0.16), 0 19px 76px rgba(0, 0, 0, 0.25);
+		}
+	}
+
 	/* -----
 	SVG Icons - svgicons.sparkk.fr
 	----- */

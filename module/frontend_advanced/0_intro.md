@@ -4,6 +4,7 @@ title: Intro
 permalink: /module/frontend_advanced/0/
 categories: frontend_advanced
 excerpt: "Generelle Einführung in die Thematik & technische Vorraussetzungen."
+navigation_group: module
 theme: carrot_1
 ---
 

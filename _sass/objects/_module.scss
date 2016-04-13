@@ -1,7 +1,7 @@
 .module {
     border-left: 2px solid currentcolor;
     padding: 1em;
-    box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
+    @include card-shadow(1);
     &__title {
         color: currentcolor;
         font-size: 1.25em;
