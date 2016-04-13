@@ -101,6 +101,7 @@ Mit Taskrunnern wie Grunt & Gulp lassen sich viele kleine Schritte in einem Comm
 + Grunt - [gruntjs.com](gruntjs.com)
 + Gulp for Beginners - [css-tricks.com](https://css-tricks.com/gulp-for-beginners/)
 + Getting Started with Gulp - [markgoodyear.com](https://markgoodyear.com/2014/01/getting-started-with-gulp/)
++ How do I update to Gulp 4? - [liquidlight.co.uk](https://www.liquidlight.co.uk/blog/article/how-do-i-update-to-gulp-4/)
 
 ### Mit einem neuen Gulp Projekt beginnen
 
