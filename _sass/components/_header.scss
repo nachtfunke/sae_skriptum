@@ -27,6 +27,26 @@
                 }
         	}
         }
+        &--grape {
+        	@for $i from 0 through 7 {
+                &_#{$i} {
+                    @include breakpoint(regular) {
+                        @if $i == 0 {
+                            background-color: color(theme-grape);
+                        } @else {
+                            background-color: adjust-hue(color(theme-grape), ($i * 12%));
+                        }
+                    }
+                    &:after {
+                        @if $i == 0 {
+                            background-color: color(theme-carrot);
+                        } @else {
+                            background-color: adjust-hue(color(theme-grape), ($i * 12%));
+                        }
+                    }
+                }
+        	}
+        }
     }
     &:after {
         @include breakpoint(regular) {
