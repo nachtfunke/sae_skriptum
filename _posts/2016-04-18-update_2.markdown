@@ -5,9 +5,11 @@ date:   2016-04-18
 categories: update
 ---
 
-Das Skriptum für Frontend Advanced 3 wurde um eine kleine Sektion bei "SVG Icons" erweitert: "Wo findet man Icons?"
+Der Gelbton wurde angepasst und sollte nun auf schlechteren Bildschirmen angenehmer anzusehen sein. Außerdem ist der orange Farbton von "Frontend Advanced" einem Grünton gewichen.
 
-Zusätzlich wurden in der Datei einige Schreib- & Syntax-Fehler ausgebessert.
+## Änderungen am Skriptum
+
+Das Skriptum für Frontend Advanced 3 wurde um eine kleine Sektion bei "SVG Icons" erweitert: "Wo findet man Icons?" Zusätzlich wurden in der Datei einige Schreib- & Syntax-Fehler ausgebessert.
 
 ## Update zum Beispiel sae_fa2_bsp der letzten Einheit
 
