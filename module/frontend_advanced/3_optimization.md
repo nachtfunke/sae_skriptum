@@ -34,7 +34,7 @@ Es ist natürlich umständlich und nicht sehr nachhaltig, den Code jedesmal von 
 
 #### Arbeiten mit Currentcolor
 
-Da die einzelnen Elemente aus denen ein SVG besteht Teil des DOMs sind, können diese auch mit CSS selektiert werden. Da ist vor Allem der Wert `currentcolor` sehr nützlich. Currentcolor entspricht immer dem aktuell gesetzten `color`, also Schriftfarben-Wert. Das ist dann sehr interessant, wenn wir zBsp. Text neben einem Icon auf dieselbe Schriftfarbe setzen wollen:
+Da die einzelnen Elemente aus denen ein SVG besteht Teil des DOMs sind, können diese auch mit CSS selektiert werden. Da ist vor Allem die CSS Variable `currentcolor` sehr nützlich. Currentcolor entspricht immer dem aktuell gesetzten `color`, also Schriftfarben-Wert. Das ist dann sehr interessant, wenn wir zBsp. Text neben einem Icon auf dieselbe Schriftfarbe setzen wollen:
 
 ``` sass
 .button {
@@ -56,6 +56,12 @@ svg {
 ```
 
 Auf jeden Fall zu vermeiden: `svg * { ... }`. Der Universalselektor wählt dementsprechend jedes Element innerhalb von svg an und kann vor Allem bei komplexen SVG's Performanceprobleme bei Animationen verursachen.
+
+#### Wo findet man icons?
+
+Grundsätzlich findet man Icons in Fülle an zu vielen verschiedenen Orten, um diese wirklich alle nennen zu können. Viele qualitativ hochwertige Icons finden sich im wöchentlichen [Collective](http://tympanus.net/codrops/collective/) von [Codrops](http://tympanus.net/codrops/), bzw. gibt es dort auch eine [Freebies-Kategorie](http://tympanus.net/codrops/category/freebies/), die man im Auge behalten kann.
+
+Hier und da findet man auch Icons auf [dribbble und Behance](http://dbfreebies.co/icons). Sehr zu empfehlen ist [thenounproject.com](https://thenounproject.com/). Dort kann man einzelne SVG's runterladen und verwenden, solange man den Urheber nach den Regeln von thenounproject.com nennt.
 
 ### Icon Fonts
 
@@ -106,15 +112,13 @@ Mit Taskrunnern wie Grunt & Gulp lassen sich viele kleine Schritte in einem Comm
 
 ### Mit einem neuen Gulp Projekt beginnen
 
-_Diese Schritte gehen davon aus, dass Node & NPM auf dem System laufen._
-
 Zuerst wir das CLI (Commandline Interface) global installiert:
 
 ``` bash
-npm install gulp-cli --global
+npm install gulp-cli -g
 ```
 
-Ist die Installation beendet, wird im Projektordner sicherstellen, dass Gulp als devDependency für NPM gespeichert wird. Damit stellen wir sicher, dass wenn wir oder jemand anders das Projekt an einem anderen Ort aufmachen, ohne große Probleme alle devDependencies installiert werden können. Dabei hilft NPM's package.json, die wir mit diesem Befehl anlegen:
+Ist die Installation beendet, legen wir im Projektordner noch fest, dass Gulp als devDependency für NPM gespeichert wird. Damit stellen wir sicher, dass wenn wir oder jemand anders das Projekt an einem anderen Ort aufmachen, ohne große Probleme alle devDependencies installiert werden können. Dabei hilft NPM's package.json, die wir mit diesem Befehl anlegen:
 
 ``` bash
 npm init
@@ -176,7 +180,7 @@ var sass = require('gulp-sass');
 gulp.task('sass', function() {
     return gulp.src('dev/scss/**/*.scss') // greift unsere SCSS Files auf
         .pipe(sass()) // ...übergibt sie gulp-sass
-        .pipe.(gulp.dest('dev/css')); // ...und speichert den output
+        .pipe(gulp.dest('dev/css')); // ...und speichert den output
 });
 ```
 
@@ -197,7 +201,7 @@ var sass = require('gulp-sass');
 gulp.task('sass', function() {
     return gulp.src('dev/scss/**/*.scss')
         .pipe(sass())
-        .pipe.(gulp.dest('dev/css'));
+        .pipe(gulp.dest('dev/css'));
 });
 
 gulp.task('sass:watch', function() {
@@ -214,7 +218,7 @@ var sass = require('gulp-sass');
 gulp.task('sass', function() {
     return gulp.src('dev/scss/**/*.scss')
         .pipe(sass())
-        .pipe.(gulp.dest('dev/css'));
+        .pipe(gulp.dest('dev/css'));
 });
 
 gulp.task('sass:watch', function() {
