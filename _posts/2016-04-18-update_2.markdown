@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "Update #2"
+date:   2016-04-18
+categories: update
+---
+
+Das Skriptum für Frontend Advanced 3 wurde um eine kleine Sektion bei "SVG Icons" erweitert: "Wo findet man Icons?"
+
+Zusätzlich wurden in der Datei einige Schreib- & Syntax-Fehler ausgebessert.
+
+## Update zum Beispiel sae_fa2_bsp der letzten Einheit
+
++ Der "[Sass Playground](https://github.com/nachtfunke/sae_fa2_bsp/tree/master/sass_playground)" wurde gefixed:
+    + Im String des sass:watch-tasks stand `./scss/*/**.scss` - richtig ist: `./scss/**/*.scss`
+    + Damit funktioniert der "Sass Playground" as intended: beim Speichern von *.scss-files wird sass neu kompiliert.
