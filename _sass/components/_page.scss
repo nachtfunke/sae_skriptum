@@ -22,7 +22,7 @@
                         @if $i == 0 {
                             color: color(theme-carrot);
                         } @else {
-                            color: adjust-hue(color(theme-carrot), ($i * 5%));
+                            color: adjust-hue(color(theme-carrot), ($i * 12%));
                         }
                     }
                     h3 {

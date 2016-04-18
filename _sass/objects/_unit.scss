@@ -24,14 +24,14 @@
                     @if $i == 0 {
                         color: color(theme-carrot);
                     } @else {
-                        color: adjust-hue(color(theme-carrot), ($i * 5%));
+                        color: adjust-hue(color(theme-carrot), ($i * 12%));
                     }
                     .unit__title {
                         @include breakpoint(tablet) {
                             @if $i == 0 {
                                 background-color: color(theme-carrot);
                             } @else {
-                                background-color: adjust-hue(color(theme-carrot), ($i * 5%));
+                                background-color: adjust-hue(color(theme-carrot), ($i * 12%));
                             }
                         }
                     }
