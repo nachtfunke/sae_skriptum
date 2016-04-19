@@ -78,10 +78,12 @@ Ein guter Mittelweg ist Fontello, ein Tool mit dem man seine eigene Icon Font zu
 
 ### Weiterführendes
 
++ SVG for Webdesigners & -developers - [youtube.com](https://www.youtube.com/watch?v=q4QI9iOeyPo)
 + Using SVG - [css-tricks.com](https://css-tricks.com/using-svg/)
 + SVG Symbol, a good choice for Icons - [css-tricks.com](https://css-tricks.com/svg-symbol-good-choice-icons/)
 + Icon Systems with SVG Sprites - [css-tricks.com](https://css-tricks.com/svg-sprites-use-better-icon-fonts/)
 + How to work with SVG Icons - [fvsch.com](http://fvsch.com/code/svg-icons/how-to/)
++ An Overview of SVG Sprite Creation Techniques - [24ways.org](https://24ways.org/2014/an-overview-of-svg-sprite-creation-techniques/)
 + Icomoon - [icomoon.io](https://icomoon.io)
 + Iconjar - [geticonjar.com](http://geticonjar.com/)
 + Ionicons - [ionicons.com](http://ionicons.com/)
