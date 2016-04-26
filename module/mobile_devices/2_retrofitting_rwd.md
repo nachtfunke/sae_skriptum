@@ -87,7 +87,7 @@ Im Idealfall testet man an realen Geräten. Für diesen Fall eignet sich Browser
 
 Als Entwickler fällt uns schnell auf, wenn wir mit Design arbeiten, das nicht gut skaliert. Aber auch im Entwickeln, merken wir relativ schnell, welche Praktiken problematisch werden können. Arbeiten wir nicht durchgängig mit relativen Werten, oder machen wir Layout-definierende Elemente nicht kontet-abhängig, so kann es passieren, dass wir oft für viele verschiedene Breakpoints regeln machen müssen, die unsere Arbeit zuvor überschreiben.
 
-![ständiges Überschreiben durch Breakpoints]({{site.url}}/additive_breakpoints.png)
+![ständiges Überschreiben durch Breakpoints]({{site.url}}/img/additive_breakpoints.png)
 
 Das spüren früher oder später auch die User. Arbeiten wir mit `max-width` based Mediaqueries, dann greifen mehr und mehr Mediaqueries, je kleiner der Bildschirm ist. Das heißt im Endeffekt, das der Browser mehr Arbeit hat und das hat Performance Implikationen.
 
