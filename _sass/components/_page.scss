@@ -127,7 +127,7 @@
         line-height: 2;
         font-weight: 400;
         text-transform: uppercase;
-        color: darken(color(bg),35%);
+        color: darken(color(bg), 35%);
         &:before {
             content: '';
             height: 100%;
@@ -224,6 +224,10 @@
             right: 0;
             transform: translateX(-60%) translateY(45%);
         }
+    }
+    img {
+        display: block;
+        margin: 0 auto;
     }
     .highlight {
         @extend %font-code;
