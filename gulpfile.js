@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
+var sourcemaps = require('gulp-sourcemaps');
 var cp = require('child_process');
 var jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 
@@ -33,8 +34,10 @@ gulp.task('serve', ['sass'], function() {
 
 gulp.task('sass', function() {
     return gulp.src('_sass/**/*.scss')
-        .pipe(sass())
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer(['last 2 versions', '> 2%', 'ie 8'], { cascade: true}))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('_site/css'))
         .pipe(browserSync.stream()); // auto-inject CSS
 });
