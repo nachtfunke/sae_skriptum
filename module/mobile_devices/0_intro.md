@@ -42,13 +42,7 @@ Im Verlauf des Moduls erarbeiten wir den _Mobile First_ - Approach und erleuchte
 ### Einheit 4 - progressive enhancement
 
 + Progressive Enhancement Philosophy
-+ modernizr-mixin
 + RWD Workflow
-+ immer wieder auftretende Probleme
-+ Arbeiten mit Designern
-+ Fakten & Ressourcen für Entscheidungsträger
-+ Code Management
-+ Arbeiten mit Frameworks
 + advanced mediaqueries
 
 ### Einheit 5 - moderne Layout Techniken
