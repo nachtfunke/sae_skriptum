@@ -1,19 +1,20 @@
 ---
 layout: page
-title: Mobile Devices
-excerpt: "Responsive Webdesign, mobile first, progressive enhancement und Arbeiten mit modernen Layout Techniken."
-permalink: /module/mobile_devices/
+title: HTML & CSS
+excerpt: "Webseiten mit HTML und CSS als Grundlage der Webentwicklun erstellen - Historie, Standards, Techniken und Konzepte."
+permalink: /module/html_css/
 categories: modul
-theme: grape
-order: 2
+theme: tomato
+order: 0
 ---
 
-<h1 class="page__title">Mobile Devices</h1>
+<h1 class="page__title">HTML & CSS</h1>
 <p>In "Mobile Devices" geht es um responsive Webdesign, aktuelle Best Practice und zukunftssichere Layout-Techniken in der Webentwicklkung für mobile Endgeräte.</p>
 <nav class="menu--units">
-    {% for page in site.pages %}
-        {% if page:categories == "mobile_devices" %}
-            <article class="menu__item  unit theme--grape">
+    {% assign units = (site.pages | where: "categories" , "html_css") %}
+    {% for page in units %}
+        {% if page:categories == "html_css" %}
+            <article class="menu__item  unit theme--tomato">
                 <a href="{{ page.url }}" title="{{ page.title }}">
                     <h1 class="unit__title">{{ page.title }}</h1>
                     <p>{{ page.excerpt }}</p>

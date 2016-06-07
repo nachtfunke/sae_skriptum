@@ -51,6 +51,25 @@
                 }
         	}
         }
+
+        &--tomato {
+        	@for $i from 0 through 11 {
+                &_#{$i} {
+                    h1, h2, h3, h3:before, p > strong, li > strong {
+                        @if $i == 0 {
+                            color: color(theme-tomato);
+                        } @else {
+                            color: adjust-hue(color(theme-tomato), ($i * 5%));
+                        }
+                    }
+                    h3 {
+                        @include breakpoint(regular) {
+                            color: darken(color(bg),60%);
+                        }
+                    }
+                }
+        	}
+        }
     }
     &__title {
         font-size: 1em;

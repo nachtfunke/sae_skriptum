@@ -58,5 +58,25 @@
                 }
         	}
         }
+        &--tomato {
+            @for $i from 0 through 11 {
+                &:nth-child(#{$i}) {
+                    @if $i == 0 {
+                        color: color(theme-tomato);
+                    } @else {
+                        color: adjust-hue(color(theme-tomato), ($i * 5%));
+                    }
+                    .unit__title {
+                        @include breakpoint(tablet) {
+                            @if $i == 0 {
+                                background-color: color(theme-tomato);
+                            } @else {
+                                background-color: adjust-hue(color(theme-tomato), ($i * 5%));
+                            }
+                        }
+                    }
+                }
+        	}
+        }
     }
 }
