@@ -38,7 +38,7 @@ Der Outline-Algorithmus in HTML5 ist Teil der Spezifikation seit 2008 wurde jedo
 
 ``` html
 <main>
-	<h1>Willkommen auf dieser Seite.</h1>
+  <h1>Willkommen auf dieser Seite.</h1>
 	<p>Lorem Ipsum</p>
 	<section class="related-articles">
 		<h1>Ähnliche Beiträge</h1>
@@ -264,15 +264,15 @@ Wird ein Platzhalter-Text mit dem `placeholder` Attribut gesetzt, so handelt es 
 }
 
 :-moz-placeholder { /* Firefox 18- */
-	color: red;  
+	color: red;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-	color: red;  
+	color: red;
 }
 
-:-ms-input-placeholder {  
-	color: red;  
+:-ms-input-placeholder {
+	color: red;
 }
 ```
 
@@ -301,7 +301,7 @@ Das `<video>` Element wird verwendet, um Videofiles anzuzeigen:
 
 ``` html
 <video src="videos/vid.webm" controlls preload="auto">
-	Ihr Browser unterstützt HTML5-Videos leider nicht :(
+  Ihr Browser unterstützt HTML5-Videos leider nicht :(
 </video>
 ```
 
@@ -323,4 +323,3 @@ Das `<audio>`-Element ist beinahe identisch in seiner Handhabung mit dem Video-E
 ## custom attributes
 
 In HTML5 kann man mit Hilfe des `data-*` Attributes, eigene Attribute definieren. Das custom-attribute kann einen beliebigen namen haben, solange ihm `data-` vorhergeht.
-
