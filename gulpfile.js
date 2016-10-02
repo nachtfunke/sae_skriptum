@@ -51,7 +51,7 @@ gulp.task('sass:minify', function() {
 
 gulp.task('watch', function() {
     gulp.watch('_sass/**/*.scss', ['sass']);
-    gulp.watch(['_layouts/*.html', '_includes/*.html', '/_posts/*', '*.html', '*.md', 'module/**/*'], ['jekyll-rebuild']);
+    gulp.watch(['_layouts/*.html', '_includes/*.html', '_posts/*.md', '*.html', '*.md', 'module/**/*'], ['jekyll-rebuild']);
 });
 
 gulp.task('build_sync', ['browserSync', 'watch']);
