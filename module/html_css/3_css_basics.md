@@ -266,6 +266,29 @@ Während `:active` gilt, wenn etwas angeklickt wird, greift `:focus` wenn das Fo
 + Descendant Selector - [css-tricks.com](https://css-tricks.com/almanac/selectors/d/descendant/)
 + nth-child Selector - [css-tricks.com](https://css-tricks.com/almanac/selectors/n/nth-child/)
 
+## Vererbung
+
+Vererbung ist ein weiteres Kernkonzept von CSS. Es besagt, dass manche Eigenschaften nach unten vererbt werden, wenn diese in einem Element darüber gesetzt worden sind. Nicht alle Eigenschaften werden automatisch geerbt, aber einige, vor Allem Eigenschaften zum Text-Styling. Setzen wir die Schrift-Familie im HTML-Element, so wird diese nach unten weitervererbt, es sei denn wir beenden dieses Verhalten explizit
+
+Für die Vererbung gibtes außerdem noch einen globalen Wert, der bei jeder fast Eigenschaft eingesetzt werden kann:
+
+``` css
+p {
+	background-color: inherit;
+}
+```
+
+Mit dem `inherit` Keyword können wir explizit die Vererbung von bestimmten Eigenschaften festlegen.
+
+### Mit der Kaskade arbeiten
+
+Eine gute Faustregel ist es, Eigenschaften die natürlicherweise vererbt würden, nicht mit dem Universalselektor `*` zu setzen, stattdessen die Deklarationen in einen HTML-Element Selektor, oder `:root` Selektor zu schreiben.
+
+### Weiterführendes:
+
++ CSS Specificity and Inheritance - [smashingmagazine.com](https://www.smashingmagazine.com/2010/04/css-specificity-and-inheritance/)
++ 
+
 ## Spezifität
 
 Spezifität ist das mitunter wichtigste Thema bei CSS. Da wir nur Regeln mit Selektoren schreiben, kann es oft vorkommen, dass mehrere Regeln auf dasselbe Element zutreffen. Die **Spezifität** entscheidet dann, welche dieser Regeln zutrifft.
@@ -481,6 +504,20 @@ p {
 }
 ```
 
+## Backgrounds
+
+Backgrounds sind solide Farben, Gradients (Farbverläufe) oder Bilder.
+
+### background-color
+
+### background-image
+
+### background-position
+
+### background-repeat
+
+### background-size
+
 ### Weiterführendes
 
 + Fundamentals in Text Styling - [developer.mozilla.org](https://developer.mozilla.org/en-US/Learn/CSS/Styling_text/Fundamentals)
@@ -491,16 +528,3 @@ p {
 + line-height - [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)
 + letter-spacing - [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)
 
-## Vererbung
-
-Vererbung ist ein weiteres Kernkonzept von CSS. Es besagt, dass manche Eigenschaften nach unten vererbt werden, wenn diese in einem Element darüber gesetzt worden sind. Nicht alle Eigenschaften werden automatisch geerbt, aber einige, vor Allem Eigenschaften zum Text-Styling. Setzen wir die Schrift-Familie im HTML-Element, so wird diese nach unten weitervererbt, es sei denn wir beenden dieses Verhalten explizit
-
-Für die Vererbung gibtes außerdem noch einen globalen Wert, der bei jeder fast Eigenschaft eingesetzt werden kann:
-
-``` css
-p {
-	background-color: inherit;
-}
-```
-
-Mit dem `inherit` Keyword können wir explizit die Vererbung von bestimmten Eigenschaften festlegen.
