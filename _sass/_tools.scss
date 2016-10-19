@@ -54,6 +54,174 @@
 		}
 	}
 
+    // String-Replace Mixin by Hugo Giraudel
+    @function str-replace($string, $search, $replace: '') {
+        $index: str-index($string, $search);
+        @if $index {
+            @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+        }
+        @return $string;
+    }
+
+    // Modul Mixin
+    @mixin module() {
+      padding: 2em;
+      @extend %font-code;
+      border-radius: 5px;
+      position: relative;
+      z-index: 1;
+      &::after {
+          position: absolute;
+          content: '';
+          z-index: -1;
+          bottom: 0.5em;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: inherit;
+          transform: scaleX(0.85) scaleY(0.5);
+          transform-origin: bottom center;
+          box-shadow: 0px 0px 20px 20px currentcolor;
+          opacity: 0.8;
+      }
+      &__title {
+          color: #fff;
+          font-size: 1.25em;
+          font-weight: 600;
+          line-height: 1;
+      }
+      &__description {
+          p {
+              color: #fff !important;
+              font-size: 0.85em !important;
+              font-weight: 300;
+          }
+      }
+    }
+
+    // Header Theme
+    @mixin header_theme($iteration, $color, $intensity: 5%) {
+      @for $i from 0 through $iteration {
+        &_#{$i} {
+          @if $i == 0 {
+            background-color: $color;
+          } @else {
+            background-color: adjust-hue($color, ($i * $intensity));
+          }
+          &:after {
+            @if $i == 0 {
+              background-color: $color;
+            } @else {
+              background-color: adjust-hue($color, ($i * $intensity));
+            }
+          }
+        }
+      }
+    }
+
+    // Page Theme
+    @mixin page_theme($iteration, $color, $intensity: 12, $debug: false) {
+      @if $debug {
+        @debug "Received Numbers of Iterations: " + $iteration;
+        @debug "Received Color: " + $color;
+        @debug "Received Intensity: " + $intensity;
+      }
+      $degree: $intensity + %;
+      @for $x from 0 through $iteration {
+        &_#{$x} {
+          h1,
+          h2,
+          h3,
+          h3:before,
+          p > strong,
+          li > strong {
+            @if $x == 0 {
+                color: $color;
+            } @else {
+                $adjusted-color: adjust-hue($color, ($x * $degree));
+                color: $adjusted-color;
+                @if $debug {
+                  @debug 'At Iteration ' + $x + ', Color will be #{$adjusted-color}';
+                }
+            }
+          }
+          h3 {
+            @include breakpoint(regular) {
+                color: darken(color(bg),60%);
+            }
+          }
+        }
+      }
+    }
+
+    @mixin page_header_theme($iteration, $color, $intensity: 12%) {
+      @for $x from 0 through $iteration {
+        &_#{$x} {
+          @if $x == 0 {
+            background-color: darken(desaturate($color, 10%), 10%);
+          } @else {
+            background-color: darken(desaturate(adjust-hue($color, ($x * $intensity)), 10%), 10%);
+          }
+          .page__title,
+          .page__intro {
+            @if $color != color(bright) {
+              @if $x == 0 {
+                color: lighten($color, 35%);
+              } @else {
+                color: lighten(adjust-hue($color, ($x * $intensity)), 35%);
+              }
+            } @else {
+              color: invert($color);
+            }
+          }
+          .page__links li {
+            @if $x == 0 {
+              background-color: invert($color);
+            } @else {
+              background-color: invert(adjust-hue($color, ($x * $intensity)));
+            }
+          }
+        }
+      }
+    }
+
+    // Units Theming
+    @mixin unit_theming($theme, $times, $intensity: 12%) {
+      @for $i from 0 through $times {
+        &:nth-of-type(#{$i}) {
+          @if $i == 0 {
+              color: color($theme);
+          } @else {
+              color: adjust-hue(color($theme), ($i * $intensity));
+          }
+          &:before {
+            @if $i == 0 {
+              background-color: invert(color($theme));
+            } @else {
+              background-color: invert(adjust-hue(color($theme), ($i * $intensity)));
+            }
+          }
+          .unit__description p {
+            @if $i == 0 {
+                color: lighten(color($theme), 35%);
+            } @else {
+                color: lighten(adjust-hue(color($theme), ($i * $intensity)), 35%);
+            }
+          }
+        }
+      }
+    }
+
+  // Der Alte .page__title style
+  @mixin uncanny_title {
+    font-size: 1em;
+    text-transform: uppercase;
+    line-height: 1;
+    font-weight: 400;
+    color: darken(color(bg), 25%);
+    margin-top: 2em;
+  }
+
 	/* -----
 	SVG Icons - svgicons.sparkk.fr
 	----- */

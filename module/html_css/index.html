@@ -15,9 +15,18 @@ order: 0
     {% for page in units %}
         {% if page:categories == "html_css" %}
             <article class="menu__item  unit theme--tomato">
+              {% if page.tags %}
+                <ul class="unit__tag-list">
+                {% for tag in page.tags %}
+                  <li class="unit__tag unit__tag--{{ tag }}">{{ tag }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
                 <a href="{{ page.url }}" title="{{ page.title }}">
                     <h1 class="unit__title">{{ page.title }}</h1>
-                    <p>{{ page.excerpt }}</p>
+                    <div class="unit__description">
+                      <p>{{ page.excerpt }}</p>
+                    </div>
                 </a>
             </article>
         {% endif %}

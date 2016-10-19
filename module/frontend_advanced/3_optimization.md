@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: Einheit 3 - Arbeitsschritte optimieren
 permalink: /module/frontend_advanced/3/
 categories: frontend_advanced

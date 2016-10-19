@@ -15,80 +15,95 @@
         margin-top: 0.75em;
     }
     &.page-theme {
+      &--carrot {
+        @include page_theme(4, color(theme-carrot), 18);
+      }
+      &--grape {
+        @include page_theme(7, color(theme-grape));
+      }
+      &--tomato {
+        @include page_theme(11, color(theme-tomato), 5);
+      }
+      &--trixie {
+        @include page_theme(4, color(theme-trixie));
+      }
+    }
+    &__header {
+      padding: 1rem;
+      color: #fff;
+      position: relative;
+      @extend %font-code;
+      @include custom_breakpoint(414px) {
+          margin: 0 1rem;
+      }
+      @include breakpoint(tablet) {
+          padding: 2rem;
+      }
+      @include breakpoint(regular) {
+          padding: 5rem;
+      }
+      &.page-theme {
         &--carrot {
-        	@for $i from 0 through 4 {
-                &_#{$i} {
-                    h1, h2, h3, h3:before, p > strong, li > strong {
-                        @if $i == 0 {
-                            color: color(theme-carrot);
-                        } @else {
-                            color: adjust-hue(color(theme-carrot), ($i * 12%));
-                        }
-                    }
-                    h3 {
-                        @include breakpoint(regular) {
-                            color: darken(color(bg),60%);
-                        }
-                    }
-                }
-        	}
+          @include page_header_theme(4, color(theme-carrot), 18%);
         }
         &--grape {
-        	@for $i from 0 through 7 {
-                &_#{$i} {
-                    h1, h2, h3, h3:before, p > strong, li > strong {
-                        @if $i == 0 {
-                            color: color(theme-grape);
-                        } @else {
-                            color: adjust-hue(color(theme-grape), ($i * 12%));
-                        }
-                    }
-                    h3 {
-                        @include breakpoint(regular) {
-                            color: darken(color(bg),60%);
-                        }
-                    }
-                }
-        	}
+          @include page_header_theme(7, color(theme-grape));
         }
-
         &--tomato {
-        	@for $i from 0 through 11 {
-                &_#{$i} {
-                    h1, h2, h3, h3:before, p > strong, li > strong {
-                        @if $i == 0 {
-                            color: color(theme-tomato);
-                        } @else {
-                            color: adjust-hue(color(theme-tomato), ($i * 5%));
-                        }
-                    }
-                    h3 {
-                        @include breakpoint(regular) {
-                            color: darken(color(bg),60%);
-                        }
-                    }
-                }
-        	}
+          @include page_header_theme(11, color(theme-tomato), 5%);
         }
+        &--trixie {
+          @include page_header_theme(4, color(theme-trixie));
+        }
+        &--bright {
+          @include page_header_theme(5, color(bright), 20%);
+        }
+      }
+      .page {
+        &__title {
+          color: inherit;
+        }
+        &__intro {
+          color: inherit;
+        }
+        &__links {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          padding: 0 1rem;
+          transform: translateY(50%);
+          text-align: right;
+          width: 100%;
+          @include breakpoint(regular) {
+            padding: 0 5rem;
+          }
+          & > li {
+            display: inline-block;
+            background-color: color(bright);
+            font-size: 0.8em;
+            padding: 0.2ch 0.5ch;
+            border-radius: 2px;
+            color: color(dark);
+            @extend %font-main;
+            transition: background-color .15s ease;
+            &:hover {
+              background-color: color(primary);
+              color: color(bright);
+            }
+            a {
+              display: block;
+            }
+          }
+        }
+      }
+      & + * {
+        margin-top: 2em;
+      }
     }
     &__title {
-        font-size: 1em;
-        text-transform: uppercase;
-        line-height: 1;
-        /*border-bottom: 1px solid currentcolor;
-        padding-bottom: 1em;*/
-        font-weight: 400;
-        color: darken(color(bg), 25%);
+      & + * {
         margin-top: 2em;
-        @include breakpoint(smaller) {
-            margin-top: 1em;
-        }
-        @include breakpoint(regular) {
-            margin-top: 0;
-        }
-        & + * {
-            margin-top: 2em;
-        }
+      }
     }
     &__section-title {
         @extend .page__title;
@@ -111,7 +126,8 @@
             margin-top: 1.5em;
         }
     }
-    h2:not(.page__section-title) {
+    h2:not(.page__section-title),
+    h2:not(.sidebar__header) {
         font-size: 1.25em;
         font-weight: 400;
         position: relative;
@@ -130,9 +146,9 @@
             }
         }
         @include breakpoint(regular) {
-            font-size: 2em;
+            font-size: 1.5em;
             font-weight: 600;
-            border-top: 3px solid darken(color(bg),5%);
+            border-top: 2px dotted darken(color(bg),5%);
             padding-top: 1em;
         }
         & + * {
@@ -181,28 +197,45 @@
         text-transform: uppercase;
         color: #aaa;
     }
-    p, li {
-        font-size: 0.85em;
+    p:not(.post__intro),
+    li:not(.unit__tag) {
         color: darken(color(bg), 50%);
         @include breakpoint(tablet) {
             font-size: 1em;
         }
         @include breakpoint(regular) {
             font-size: 1.1em;
-            line-height: 1.75;
+            line-height: 2;
         }
         & > a {
             display: inline-block;
-            background-color: color(bright);
             color: color(primary);
+            position: relative;
             padding: 0 0.5ch;
+            z-index: 1;
+            &::after {
+              position: absolute;
+              content: '';
+              height: 1ex;
+              width: 100%;
+              background-color: color(bright);
+              bottom: 1ex;
+              left: 0;
+              z-index: -1;
+              transition: height .25s ease;
+            }
+            &:hover::after {
+              height: 2.5ex;
+            }
         }
         & > code {
-            background-color: darken(color(bg), 10%);
+            background-color: darken(color(bg), 3%);
+            border: 1px solid darken(color(bg), 10%);
+            padding: 0.2ch 0.75ch;
+            border-radius: 3px;
+            color: darken(color(bg), 60%);
+            @include card_shadow(1);
         }
-    }
-    p {
-        //column-count: 2;
     }
     ul:not([class]) {
         padding-left: 1em;

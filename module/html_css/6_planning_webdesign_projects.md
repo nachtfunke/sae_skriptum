@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: Workflow - Webdesign Projekte planen
 permalink: /module/html_css/6/
 categories: html_css

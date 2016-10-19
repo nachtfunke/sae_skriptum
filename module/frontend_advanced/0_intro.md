@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: Intro
 permalink: /module/frontend_advanced/0/
 categories: frontend_advanced

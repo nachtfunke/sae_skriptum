@@ -1,14 +1,20 @@
 ---
-layout: page
+layout: unit
 title: Responsive Web Design Fundamentals
 permalink: /module/mobile_devices/1/
 categories: mobile_devices
 excerpt: "Einführung in Responsive Web Design: Fluid Layouts, Mediaqueries & Breakpoints."
 navigation_group: module
 theme: grape_2
+order: 2
+links:
+  1:
+    name: "Codepen: Beispiel 1"
+    url: "https://codepen.io"
+  2:
+    name: "Github: Übungen & Arbeitscode"
+    url: "https://github.com"
 ---
-
-# Responsive Web Design Fundamentals
 
 Responsive Web Design ist ein Set an Webdevelopment Praktiken und Ansätzen, die zum Ziel haben, Websites für eine indefinite Anzahl an Bildschirmgrößen zur Verfügung zu stellen. Die Premisse hinter RWD ist, eine Website zu kreieren, die sich dann auf ihr Ausgabemedium flexibel anpasst, anstatt eine Trennung zwischen Mobil, Tablet und Desktop zu machen (adaptive design).
 

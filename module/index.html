@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Module
 permalink: /module/
 level: top
@@ -15,12 +15,29 @@ level: top
             <article class="menu__item  module  module-theme--{{ page.theme }}">
                 <a href="{{ page.url }}" title="{{ page.title }}">
                     <h1 class="module__title">{{ page.title }}</h1>
-                    <p>{{ page.excerpt }}</p>
+                    <div class="module__description">
+                        <p>{{ page.excerpt }}</p>
+                    </div>
                 </a>
             </article>
         {% endif %}
     {% endfor %}
-    </ul>
 </nav>
 
 <p>Alternativ, sind die Einheiten auch auf <a href="#">GitHub</a> einsehbar.</p>
+<h2>Workshops</h2>
+<p>Workshops finden außerhalb regulären Unterrichts statt und bieten üblicherweise einen tieferen Einblick in ein Thema.</p>
+<nav class="menu--modules">
+    {% for page in sorted_pages %}
+        {% if page:categories == "workshop" %}
+            <article class="menu__item  module  module-theme--{{ page.theme }}">
+                <a href="{{ page.url }}" title="{{ page.title }}">
+                    <h1 class="module__title">{{ page.title }}</h1>
+                    <div class="module__description">
+                        <p>{{ page.excerpt }}</p>
+                    </div>
+                </a>
+            </article>
+        {% endif %}
+    {% endfor %}
+</nav>

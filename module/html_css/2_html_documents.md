@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: HTML Dokumente erstellen
 permalink: /module/html_css/2/
 categories: html_css

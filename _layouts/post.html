@@ -1,8 +1,7 @@
 ---
-layout: page
+layout: post-single
 ---
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
   <header class="post__header">
     <h1 class="post__title" itemprop="name headline">{{ page.title }}</h1>
     <time class="post__date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
@@ -10,5 +9,23 @@ layout: page
   <div class="post__content" itemprop="articleBody">
     {{ content }}
   </div>
-
 </article>
+<aside class="post__side  sidebar">
+  <div class="post__meta sidebar__section">
+    <h2 class="sidebar__header">TL;DR:</h2>
+    <p>{{ page.tldr }}</p>
+  </div>
+  <div class="sidebar__section">
+    <h2 class="sidebar__header">Neueste Updates</h2>
+    <ul class="page__post-list">
+        {% for post in site.posts %}
+            <li>
+                <article class="post--listed-small">
+                    <a href="{{ post.url }}">
+                        <h1 class="post__title">{{ post.title }}</h1>
+                    </a>
+                </article>
+        {% endfor %}
+    </ul>
+  </div>
+</aside>

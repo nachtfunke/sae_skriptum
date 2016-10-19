@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: Einheit 2 - Guten Code schreiben
 permalink: /module/frontend_advanced/2/
 categories: frontend_advanced

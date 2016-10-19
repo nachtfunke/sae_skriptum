@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+
+    {% include header.html %}
+
+    <main class="main">
+        <div class="wrapper--base">
+            <header class="page__header  page-theme--{{ page.theme }}">
+              <h1 class="page__title">{{ page.title }}</h1>
+              <p class="page__intro">{{ page.excerpt }}</p>
+              {% if page.links %}
+                <ul class="page__links">
+                  {% for link in page.links %}
+                    <li>
+                      {% for val in link %}
+                        <a href="{{ val.url }}" target="_blank" rel="bookmark">{{ val.name }}</a>
+                      {% endfor %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </header>
+            <div class="page  page-theme--{{ page.theme }}">
+                {{ content }}
+            </div>
+        </div>
+    </main>
+
+    {% include footer.html %}
+
+</body>
+
+</html>

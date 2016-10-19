@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: HTML Basics
 permalink: /module/html_css/1/
 categories: html_css
@@ -81,7 +81,7 @@ HTML-Elemente oder Tags umschließen also Inhalt, können aber auch weitere HTML
 </div>
 ```
 
-Damit kann HTML Inhalte nicht nur **Gruppieren**, sondern auch **Hierarchien und Zusammenhänge** ausdrücken. Diese Vorgehensweise nennt man auch _nesting_. Befindet sich ein Element in einem anderen Element, so spricht man von einem Eltern- bzw Kind-Element. Das Eltern-Element, in diesem Fall das `<div>`-Element, kann 
+Damit kann HTML Inhalte nicht nur **Gruppieren**, sondern auch **Hierarchien und Zusammenhänge** ausdrücken. Diese Vorgehensweise nennt man auch _nesting_. Befindet sich ein Element in einem anderen Element, so spricht man von einem Eltern- bzw Kind-Element. Das Eltern-Element, in diesem Fall das `<div>`-Element, kann
 
 Jedoch kann nicht jedes Element weitere Elemente nesten. Beispielsweise das `<img>` Element, das dazu verwendet wird um Bilder einzubinden:
 

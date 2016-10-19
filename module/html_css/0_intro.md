@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: Intro
 permalink: /module/html_css/0/
 categories: html_css

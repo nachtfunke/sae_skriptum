@@ -1,103 +1,57 @@
 .header {
     //background-color: #fff;
     padding: 1em;
-    @include breakpoint(regular) {
-        background-color: color(bright);
-        padding: 0;
-        position: relative;
-    }
+    background-color: color(bright);
+    position: relative;
     &.theme {
         &--carrot {
-        	@for $i from 0 through 4 {
-                &_#{$i} {
-                    @include breakpoint(regular) {
-                        @if $i == 0 {
-                            background-color: color(theme-carrot);
-                        } @else {
-                            background-color: adjust-hue(color(theme-carrot), ($i * 5%));
-                        }
-                    }
-                    &:after {
-                        @if $i == 0 {
-                            background-color: color(theme-carrot);
-                        } @else {
-                            background-color: adjust-hue(color(theme-carrot), ($i * 5%));
-                        }
-                    }
-                }
-        	}
+        	@include header_theme(4, color(theme-carrot), 18%);
         }
         &--grape {
-        	@for $i from 0 through 7 {
-                &_#{$i} {
-                    @include breakpoint(regular) {
-                        @if $i == 0 {
-                            background-color: color(theme-grape);
-                        } @else {
-                            background-color: adjust-hue(color(theme-grape), ($i * 12%));
-                        }
-                    }
-                    &:after {
-                        @if $i == 0 {
-                            background-color: color(theme-carrot);
-                        } @else {
-                            background-color: adjust-hue(color(theme-grape), ($i * 12%));
-                        }
-                    }
-                }
-        	}
+          @include header_theme(7, color(theme-grape), 12%);
         }
         &--tomato {
-        	@for $i from 0 through 11 {
-                &_#{$i} {
-                    @include breakpoint(regular) {
-                        @if $i == 0 {
-                            background-color: color(theme-tomato);
-                        } @else {
-                            background-color: adjust-hue(color(theme-tomato), ($i * 5%));
-                        }
-                    }
-                    &:after {
-                        @if $i == 0 {
-                            background-color: color(theme-tomato);
-                        } @else {
-                            background-color: adjust-hue(color(theme-tomato), ($i * 5%));
-                        }
-                    }
-                }
-        	}
+          @include header_theme(11, color(theme-tomato));
+        }
+        &--trixie {
+          @include header_theme(4, color(theme-trixie), 12%);
+        }
+        &--primary {
+          @include header_theme(1, lighten(color(primary), 10%));
         }
     }
     &:after {
-        @include breakpoint(regular) {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 33%;
-            background-color: color(bright);
-            transform: translateY(50%) skewY(-3deg);
-            //transition: transform .3s ease-in-out 5s;
-        }
+      @include breakpoint(smaller) {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: color(bright);
+        transform: translateY(100%);
+      }
+      @include breakpoint(tablet) {
+        height: 33%;
+        transform: translateY(50%) skewY(-3deg);
+      }
     }
     &__logo {
         font-size: 1.25em;
         font-weight: 600;
-        color: color(primary);
+        color: color(bright);
+        font-size: 1em;
+        @include breakpoint(tablet) {
+          font-size: 1.5em;
+        }
         @include breakpoint(regular) {
-            color: color(bright);
-            font-size: 2em;
+          font-size: 2em;
         }
         a {
-            background-color: color(bright);
+            background-color: color(dark);
             display: inline-block;
             padding: 0.5ch;
             transform: rotate(-3deg);
-            //transition: transform .3s ease-in-out 5s;
-            @include breakpoint(regular) {
-                background-color: color(dark);
-            }
         }
         .text, .icon {
             vertical-align: middle;

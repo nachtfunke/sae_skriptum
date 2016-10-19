@@ -12,9 +12,22 @@
 </div>
 
 </footer>
-<script type="text/javascript">
+<script>
+
+  // Add target-_blank & rel-noopener to links in .page
+  var refinePageLinks = (function() {
+    var links = document.querySelectorAll('.page a');
+    var manyLinks = links.length;
+    for (var i = 0; i < manyLinks; i++) {
+      if ( ! (links[i].getAttribute('href').indexOf('http')) ) {
+        links[i].setAttribute('target', '_blank');
+        links[i].setAttribute('rel', 'noopener');
+      }
+    }
+  })();
+
   WebFontConfig = {
-    google: { families: [ 'Work+Sans:400,300,600:latin', 'Source+Code+Pro:400,600:latin', 'Source+Sans+Pro:600,400,300italic,300' ] }
+    google: { families: [ 'Work+Sans:400,300,600:latin', 'Source+Code+Pro:300,400,600:latin', 'Karla:400,400i,700,700i' ] }
   };
   (function() {
     var wf = document.createElement('script');
@@ -23,4 +36,5 @@
     wf.async = 'true';
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
-  })(); </script>
+  })();
+</script>

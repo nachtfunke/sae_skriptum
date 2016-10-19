@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: Responsive Web Design Basics
 permalink: /module/html_css/5/
 categories: html_css

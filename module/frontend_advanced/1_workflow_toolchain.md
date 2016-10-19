@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: Einheit 1 - Workflow & Toolchain
 permalink: /module/frontend_advanced/1/
 categories: frontend_advanced

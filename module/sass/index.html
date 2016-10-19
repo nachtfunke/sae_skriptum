@@ -1,19 +1,19 @@
 ---
 layout: page
-title: Frontend Advanced
-excerpt: Automatisierung und Effizienzsteigerung von Arbeitschritten - Arbeiten mit Methodologien, Frameworks, Pre- & Postprozessoren und Taskrunnern.
-permalink: /module/frontend_advanced/
-categories: modul
-theme: carrot
+title: Sass
+excerpt: "Syntactically Awesome Stylesheets - Sass nutzen um CSS zu erweitern und zu managen."
+permalink: /workshop/sass/
+categories: workshop
+theme: trixie
 order: 1
 ---
 
-<h1 class="page__title">Frontend Advanced</h1>
-<p>In "Frontend Advanced" geht es um Automatisierung und Optimierung von Arbeitsschritten.</p>
+<h1 class="page__title">Sass</h1>
+<p>Ein Crashkurs in SASS.</p>
 <nav class="menu--units">
     {% for page in site.pages %}
-        {% if page:categories == "frontend_advanced" %}
-            <article class="menu__item  unit theme--carrot">
+        {% if page:categories == "sass" %}
+            <article class="menu__item  unit theme--trixie">
               {% if page.tags %}
                 <ul class="unit__tag-list">
                 {% for tag in page.tags %}
@@ -21,7 +21,7 @@ order: 1
                 {% endfor %}
                 </ul>
               {% endif %}
-                <a href="{{ page.url | prepend: site.url }}" title="{{ page.title }}">
+                <a href="{{ page.url }}" title="{{ page.title }}">
                     <h1 class="unit__title">{{ page.title }}</h1>
                     <div class="unit__description">
                       <p>{{ page.excerpt }}</p>

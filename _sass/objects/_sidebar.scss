@@ -1,0 +1,15 @@
+.sidebar {
+  padding-left: 2em;
+  border-left: 2px dotted color(bg);
+  margin-top: 0 !important;
+  &__section {
+    & + & {
+      margin-top: 2em;
+    }
+  }
+  &__header {
+    margin-top: 0;
+    font-size: 0.8em;
+    text-transform: uppercase;
+  }
+}

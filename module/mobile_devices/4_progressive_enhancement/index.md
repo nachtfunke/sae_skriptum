@@ -1,11 +1,12 @@
 ---
-layout: page
+layout: unit
 title: Progressive Enhancement
 permalink: /module/mobile_devices/4/
 categories: mobile_devices
 excerpt: "RWD Workflow: Progressive Enhancement & Advanced Mediaqueries."
 navigation_group: module
 theme: grape_5
+order: 5
 ---
 
 # Progressive Enhancement

@@ -1,26 +1,12 @@
 .module {
-    border-left: 2px solid currentcolor;
-    padding: 1em;
-    @include card-shadow(1);
-    &__title {
-        color: currentcolor;
-        font-size: 1.25em;
-        font-weight: 600;
-        line-height: 1;
-    }
-    p {
-        font-size: 0.85em;
-        letter-spacing: -0.075ch;
-    }
+    @include module;
     &-theme {
-        &--carrot {
-            color: color(theme-carrot)
-        }
-        &--grape {
-            color: color(theme-grape);
-        }
-        &--tomato {
-            color: color(theme-tomato);
+        @each $color-name, $color-value in $colors {
+            $modifier: str-replace(#{$color-name}, 'theme-');
+            &--#{$modifier} {
+                background-color: $color-value;
+                color: $color-value;
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: Workflow - Webdesign Projekte abschließen
 permalink: /module/html_css/9/
 categories: html_css

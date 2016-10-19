@@ -1,5 +1,22 @@
 ---
-layout: page
+layout: default
 title: Updates
+permalink: /updates/
 level: top
 ---
+
+<h1 class="page__title">Updates</h1>
+
+<p>Neuigkeiten rund um den Unterricht und um das Skriptum.</p>
+
+<ul class="page__post-list">
+    {% for post in site.posts %}
+        <li>
+            <article class="post--listed">
+                <a href="{{ post.url }}">
+                    <time class="post__date">{{ post.date | date_to_string }}</time>
+                    <h1 class="post__title">{{ post.title }}</h1>
+                </a>
+            </article>
+    {% endfor %}
+</ul>

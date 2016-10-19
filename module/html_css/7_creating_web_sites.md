@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: Workflow - Web Seiten anlegen
 permalink: /module/html_css/7/
 categories: html_css

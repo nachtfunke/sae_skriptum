@@ -11,14 +11,29 @@ order: 2
 <h1 class="page__title">Mobile Devices</h1>
 <p>In "Mobile Devices" geht es um responsive Webdesign, aktuelle Best Practice und zukunftssichere Layout-Techniken in der Webentwicklkung für mobile Endgeräte.</p>
 <nav class="menu--units">
-    {% for page in site.pages %}
+    {% assign pages = site.pages | sort:"order"  %}
+    {% for page in pages %}
         {% if page:categories == "mobile_devices" %}
             <article class="menu__item  unit theme--grape">
+              {% if page.tags %}
+                <ul class="unit__tag-list">
+                {% for tag in page.tags %}
+                  <li class="unit__tag unit__tag--{{ tag }}">{{ tag }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
                 <a href="{{ page.url }}" title="{{ page.title }}">
                     <h1 class="unit__title">{{ page.title }}</h1>
-                    <p>{{ page.excerpt }}</p>
+                    <div class="unit__description">
+                      <p>{{ page.excerpt }}</p>
+                    </div>
                 </a>
             </article>
+            {% if page:sub %}
+            <div class="menu__item  unit--minisprint">
+              <a href="{{ page.url }}{{ page:sub.id }}/">{{ page:sub.title }}</a>
+            </div>
+            {% endif %}
         {% endif %}
     {% endfor %}
 </nav>

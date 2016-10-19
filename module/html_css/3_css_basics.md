@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: CSS Basics
 permalink: /module/html_css/3/
 categories: html_css
@@ -20,7 +20,7 @@ Neben Layout, Text-Styling und User Interface Design, wird CSS ständig erweiter
 
 ``` css
 p {
-	font-size: 14px;
+  font-size: 14px;
 }
 ```
 
@@ -28,7 +28,7 @@ Diese Zeilen haben zur Folge, das in unserem Dokument alle `<p>` Elemente auf di
 
 ``` css
 selector {
-	declaration
+  declaration
 }
 ```
 
@@ -36,8 +36,8 @@ Eine Deklaration besteht jeweils wieder aus _property_ und _value_, also Eigensc
 
 ``` css
 selector {
-	property: value;
-	property: value;
+  property: value;
+  property: value;
 }
 ```
 
@@ -65,7 +65,7 @@ CSS kennt eine Reihe an Selektoren un der Element-Selektor ist nur einer davon.
 
 ``` css
 * {
-	color: red;
+  color: red;
 }
 ```
 
@@ -75,7 +75,7 @@ Der Universal-Selektor, erkennbar am `*` steht für **alles**. Er ist ähnlich d
 
 ``` css
 .beliebiger-klassen-name {
-	font-size: 1.5em;
+  font-size: 1.5em;
 }
 ```
 
@@ -85,7 +85,7 @@ Dieser Selektor beginnt mit einem Punkt `.`, dem ohne Leerzeichen der Name einer
 
 ``` css
 #beliebiger-id-name {
-	display: none;
+  display: none;
 }
 ```
 
@@ -97,7 +97,7 @@ Manchmal möchten wir Elemente nicht aufgrund ihrer Klassen oder ID-Attribute se
 
 ``` css
 [disabled] {
-	pointer-events: none;
+  pointer-events: none;
 }
 ```
 
@@ -105,7 +105,7 @@ Dieser Selektor wählt alle Elemente, die über ein Attribut `disabled` verfüge
 
 ``` css
 [title="weiter"] {
-	background-color: lemonchiffon;
+  background-color: lemonchiffon;
 }
 ```
 
@@ -113,7 +113,7 @@ Damit selektieren wir alle Elemente mit `title="weiter"`. Der Attribut Selektor 
 
 ``` css
 [href*="google"] {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 ```
 
@@ -125,7 +125,7 @@ Diese Selektoren beziehen sich bis jetzt alle auf den Typ des Elements, aber nic
 
 ``` css
 a, p, .readable {
-	letter-spacing: 0.1ch;
+  letter-spacing: 0.1ch;
 }
 ```
 
@@ -135,7 +135,7 @@ Selektoren verschiedener Arten können aber auch direkt kombiniert werden:
 
 ``` css
 a[href^="https"] {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 ```
 
@@ -143,7 +143,7 @@ dieser Selektor kombiniert den Element- mit dem Attribut-Selektor. Sie gelten da
 
 ``` css
 div.commentBox {
-	height: 30vh;
+  height: 30vh;
 }
 ```
 
@@ -153,7 +153,7 @@ Dieser Selektor selektiert `<div>`'s mit der Klasse `commentBox`. Das heißt, da
 
 ``` css
 .commentBox a {
-	font-style: italic;
+  font-style: italic;
 }
 ```
 
@@ -161,11 +161,11 @@ Diese Regel greift bei allen `<a>` **innerhalb** eines Elements mit der Klasse `
 
 ``` html
 <div class="commentBox">
-	<article class="commentEntry">
-		<header>Kommentarname</header>
-		<p>Lorem Ipsum, <a href="#">Link.</a></p>
-		<a href="#">weiterlesen...</a>
-	</article>
+  <article class="commentEntry">
+    <header>Kommentarname</header>
+    <p>Lorem Ipsum, <a href="#">Link.</a></p>
+    <a href="#">weiterlesen...</a>
+  </article>
 </div>
 ```
 
@@ -173,7 +173,7 @@ Man kann natürlich auch näher spezifizieren, wenn wir zum Beispiel nur alle `<
 
 ``` css
 .commentBox .commentEntry p a {
-	font-style: italic;
+  font-style: italic;
 }
 ```
 
@@ -183,7 +183,7 @@ Mit einem Child-Selektor können wir Elemente, die **direkte Nachfolger**, also 
 
 ``` css
 ul li > ul {
-	text-ident: 1em;
+  text-ident: 1em;
 }
 ```
 
@@ -193,7 +193,7 @@ Dieser Selektor selektiert alle `<ul>`, die direke Nachfolger, Kinder von `<li>`
 
 ``` css
 p + p {
-	margin-top: 0.75em;
+  margin-top: 0.75em;
 }
 ```
 
@@ -205,7 +205,7 @@ Kombiniert man einige der Selektoren die wir bis jetzt kennen gelernt haben, kan
 
 ``` css
 main > * + * {
-	margin-top: 1rem;
+  margin-top: 1rem;
 }
 ```
 Hier kombinieren wir einige Selektoren, gehen wir ihn Schritt für Schritt durch: In einem `<main>` mit direkten Nachfolgern `>` irgendeines Typs `*`, deren benachbarte Geschwisterelemente `+` irgendeines Typs `*`. Also _alle direkten Geschwister Elemente, die direkt auf das Element Main folgen_.
@@ -218,7 +218,7 @@ Manchmal muss man aber ein bestimmtes Kind-Element selektieren:
 
 ``` css
 li:first-child {
-	color: tomato;
+  color: tomato;
 }
 ```
 
@@ -228,7 +228,7 @@ Der `:nth-child()` Selektor kann noch genauer werden:
 
 ``` css
 li:nth-child(4) {
-	color: tomato;
+  color: tomato;
 }
 ```
 
@@ -242,7 +242,7 @@ CSS kann auf einfache DOM-Events reagieren:
 
 ``` css
 a:hover {
-	font-weight: bold;
+  font-weight: bold;
 }
 ```
 
@@ -274,7 +274,7 @@ Für die Vererbung gibtes außerdem noch einen globalen Wert, der bei jeder fast
 
 ``` css
 p {
-	background-color: inherit;
+  background-color: inherit;
 }
 ```
 
@@ -287,7 +287,6 @@ Eine gute Faustregel ist es, Eigenschaften die natürlicherweise vererbt würden
 ### Weiterführendes:
 
 + CSS Specificity and Inheritance - [smashingmagazine.com](https://www.smashingmagazine.com/2010/04/css-specificity-and-inheritance/)
-+ 
 
 ## Spezifität
 
@@ -322,8 +321,8 @@ Zum Organisieren von Stylesheets eignen sich Kommentare:
 
 ``` css
 /*
-	In CSS können natürlich auch Kommentare geschrieben werden.
-	Diese können auch mehrzeilig sein.
+  In CSS können natürlich auch Kommentare geschrieben werden.
+  Diese können auch mehrzeilig sein.
 */
 ```
 
@@ -347,7 +346,7 @@ Das ist natürlich eine sehr schmale Auswahl. Dank weiterentickelter Webtechnolo
 Um die Schriftart zu setzen, gibt es die eigenschaft `font-family`. Wir können hier den Namen der Schriftart direkt hineinschreiben, um diese zu setzen, aber wir können auch eine Reihe an _Fallbacks_ angeben, die dann angewendet werden, sollte die zuvor angegeben Schriftart nicht verfügbar sein:
 
 ``` css
-font-family: Calibri, "Helvetica Neue", "PT Sans", Verdana, sans-serif.
+font-family: Calibri, "Helvetica Neue", "PT Sans", Verdana, sans-serif;
 ```
 
 Der Browser geht die Liste von vorne bis hinten durch und wendet an, was er kann. Sobald eine der Schriftarten zur Verfügung steht, wird nicht mehr weiter gesucht. Diese Liste an Schriftarten nennt man den **Font Stack**. Am ende steht dann meistens nur mehr noch, welche Art der Schriftart es sein soll. Als Mögliche Keywords dafür stehen `serif`, `sans-serif`, `monospace`, `cursive` & `fantasy` zur Verfügung.
@@ -372,15 +371,15 @@ Ist die Default-Font size 16px, so ergibt 0.8em 12.8px. Damit lassen sich sehr g
 
 ``` css
 .comments {
-	font-size: 12px;
+  font-size: 12px;
 }
 
 .comments p {
-	font-size: 1em; /* also 12px */
+  font-size: 1em; /* also 12px */
 }
 
 .comments h1 {
-	font-size: 1.5em; /* also 18px, weil 12 * 1,5 = 18 */
+  font-size: 1.5em; /* also 18px, weil 12 * 1,5 = 18 */
 }
 ```
 
@@ -394,7 +393,7 @@ Die `color` Eigenschaft ändert die Schriftfarbe:
 
 ``` css
 p {
-	color: #bada55;
+  color: #bada55;
 }
 ```
 
@@ -406,7 +405,7 @@ Mit der Font-weight lässt sich das Schriftgewicht verändern, also wie bold der
 
 ``` css
 p > strong {
-	font-weight: bold;
+  font-weight: bold;
 }
 ```
 
@@ -432,7 +431,7 @@ Mit font-style lässt sich text auf kursiv setzen:
 
 ``` css
 p > em {
-	font-style: italic;
+  font-style: italic;
 }
 ```
 
@@ -442,7 +441,7 @@ Mit `text-transform` kann Großschreibung forciert werden.
 
 ``` css
 h2 {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 ```
 
@@ -454,7 +453,7 @@ Mit `text-decoration` wird hauptsächlich ein Unterstrich für Texte dargestellt
 
 ``` css
 p > span.underline {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 ```
 
@@ -464,7 +463,7 @@ Mit `text-align` wird die Textausrichtung festgelegt:
 
 ``` css
 .commentBox {
-	text-align: center;
+  text-align: center;
 }
 ```
 
@@ -476,7 +475,7 @@ Als mögliche Werte stehen zur Verfügung: `left`, `right`, `center`, `justify` 
 
 ``` css
 .commentBox > p {
-	text-indent: 1em;
+  text-indent: 1em;
 }
 ```
 
@@ -486,9 +485,9 @@ Das hat zur Folge, dass die erste Textlinie des `<p>` erst nach 1em anfängt. Di
 
 Mit `line-height` lässt sich die line-box-height von inline-elementen festlegen.  Bei block-level-elementen wird damit die minimalhöhe von line-boxes innerhalb des elements festgelegt. Text spannt sich über diese line-boxes, wir nehmen damit also Einfluss auf die Zeilenhöhe des Textes.
 
-```
+``` css
 p {
-	line-height: 1.5;
+  line-height: 1.5;
 }
 ```
 
@@ -498,9 +497,9 @@ Als Wert akzeptiert auch line-height die lenght-values, aber auch eine Nummer od
 
 Mit `letter-spacing` definieren wir den Abstand zwischen den einzelnen Characters.
 
-```
+``` css
 p {
-	letter-spacing: 0.1ch;
+  letter-spacing: 0.1ch;
 }
 ```
 
@@ -527,4 +526,3 @@ Backgrounds sind solide Farben, Gradients (Farbverläufe) oder Bilder.
 + text-indent - [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent)
 + line-height - [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)
 + letter-spacing - [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)
-

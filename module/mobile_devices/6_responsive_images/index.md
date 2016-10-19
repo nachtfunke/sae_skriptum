@@ -1,11 +1,12 @@
 ---
-layout: page
+layout: unit
 title: Responsive Images
 permalink: /module/mobile_devices/6/
 categories: mobile_devices
 excerpt: "Umgang mit Bildern: WebP, srcset & picture."
 navigation_group: module
 theme: grape_7
+order: 7
 ---
 
 # Responsive Images

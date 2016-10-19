@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: unit
 title: Workflow - Websites ausbauen
 permalink: /module/html_css/8/
 categories: html_css

@@ -19,5 +19,13 @@ github_username:  nachtfunke
 exclude: [node_modules]
 markdown: kramdown
 
+defaults:
+  -
+    scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      theme: "primary_0"
+
 kramdown:
   input: GFM

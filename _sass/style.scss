@@ -46,15 +46,18 @@
 	@import 'base';
 
 	@import 'objects/menu';
-	@import 'objects/module';
 	@import 'objects/unit';
 	@import 'objects/post';
+  @import 'objects/sidebar';
+
 	@import 'components/typo';
 	@import 'components/layout';
 	@import 'components/page';
 	@import 'components/header';
 	@import 'components/footer';
 
-	@import 'trumps';
+    @import 'objects/module';
+
+	@import 'trumps/trumps';
 
 	@import 'objects/syntax'

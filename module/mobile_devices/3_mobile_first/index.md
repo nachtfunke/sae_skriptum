@@ -1,11 +1,15 @@
 ---
-layout: page
+layout: unit
 title: Mobile First
 permalink: /module/mobile_devices/3/
 categories: mobile_devices
 excerpt: "Webdesign für kleine Bildschirme: Mit mobilen Browsern umgehen, mobile API's nutzen & Webentwicklung nach Mobile First"
 navigation_group: module
 theme: grape_4
+order: 4
+sub:
+    id: "minisprint_b"
+    title: "Projekt B: Crystal Gem Therapy"
 ---
 
 # Mobile First

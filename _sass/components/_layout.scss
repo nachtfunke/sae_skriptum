@@ -6,10 +6,13 @@
 }
 
 .header {
-    margin: 1em 0;
+    @include breakpoint(tablet) {
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+    }
     @include breakpoint(regular) {
-        margin: 0;
-        min-height: 40vh;
+        //min-height: 40vh;
     }
     & > .wrapper--base {
         display: flex;
@@ -39,7 +42,9 @@
 }
 
 .main {
-    margin-top: 2em;
+    @include breakpoint(smaller) {
+      margin-top: 2em;
+    }
     @include breakpoint(regular) {
         margin-top: 0;
         transform: translateY(-4em);
@@ -50,4 +55,18 @@
     @include breakpoint(regular) {
         transform: translateY(-4em);
     }
+}
+
+.page {
+  &.is_single-post {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    .post {
+      flex: 2;
+      &__side {
+        flex: 1;
+      }
+    }
+  }
 }
