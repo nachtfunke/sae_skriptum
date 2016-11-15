@@ -1,6 +1,6 @@
 ---
-layout: page
 title: About
-permalink: /about/
+layout: page
+permalink: "/about/"
 level: top
 ---
